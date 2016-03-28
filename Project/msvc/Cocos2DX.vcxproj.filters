@@ -1,0 +1,1250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Dependencies">
+      <UniqueIdentifier>{c36bd5e6-44cf-4be3-ad52-871850a9f5cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cocos2DX">
+      <UniqueIdentifier>{e0318b1b-1386-4e04-bc7a-8f3881c069ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cocos2DX\Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Cocos2DX\Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Dependencies\data_support">
+      <UniqueIdentifier>{f0afb95f-f0ff-41b3-a8c6-c98e93ca55ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\image_support">
+      <UniqueIdentifier>{7b036491-a472-433f-9846-8ec5e575af32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\zip_support">
+      <UniqueIdentifier>{29f3bc4b-0803-4ee3-8745-95a60624045f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\zip_support\zlib">
+      <UniqueIdentifier>{5d93048d-5d2a-4d34-a888-6aa9457a1304}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cocos2DX\Source Files\platform">
+      <UniqueIdentifier>{390c493d-ca41-49b1-a1ad-f0ec852dbc42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\image_support\png">
+      <UniqueIdentifier>{53ba1cc0-934c-449b-be2a-0c4b80f0d095}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\image_support\jpeg">
+      <UniqueIdentifier>{fd865b3a-ac5f-4859-a878-94b7d7353106}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\json_support">
+      <UniqueIdentifier>{0878ef40-7c88-4aec-8acb-cca7d495b761}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\curl_support">
+      <UniqueIdentifier>{697af5fc-9454-4f8b-9cd5-38aca9c22b95}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Cocos2DX\src\support\data_support\ccCArray.h">
+      <Filter>Dependencies\data_support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\src\support\data_support\uthash.h">
+      <Filter>Dependencies\data_support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\src\support\data_support\utlist.h">
+      <Filter>Dependencies\data_support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\src\support\image_support\TGAlib.h">
+      <Filter>Dependencies\image_support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\src\support\zip_support\ioapi.h">
+      <Filter>Dependencies\zip_support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\src\support\zip_support\unzip.h">
+      <Filter>Dependencies\zip_support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\src\support\zip_support\ZipUtils.h">
+      <Filter>Dependencies\zip_support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\src\support\CCProfiling.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\src\support\TransformUtils.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCArchOptimalParticleSystem.h">
+      <Filter>Cocos2DX\Source Files\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCCommon.h">
+      <Filter>Cocos2DX\Source Files\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCFileUtils.h">
+      <Filter>Cocos2DX\Source Files\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCGL.h">
+      <Filter>Cocos2DX\Source Files\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCImage.h">
+      <Filter>Cocos2DX\Source Files\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCLibxml2.h">
+      <Filter>Cocos2DX\Source Files\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCPlatformConfig.h">
+      <Filter>Cocos2DX\Source Files\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCPlatformMacros.h">
+      <Filter>Cocos2DX\Source Files\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCSAXParser.h">
+      <Filter>Cocos2DX\Source Files\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCStdC.h">
+      <Filter>Cocos2DX\Source Files\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCThread.h">
+      <Filter>Cocos2DX\Source Files\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\src\support\ccBase64.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCAction.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionCamera.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionEase.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionGrid.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionGrid3D.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionInstant.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionInterval.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionManager.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionPageTurn3D.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionProgressTimer.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionTiledGrid.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionTween.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCAffineTransform.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCAnimation.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCAnimationCache.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCArray.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCAtlasNode.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCAutoreleasePool.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCCamera.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\ccConfig.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCConfiguration.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCData.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCDirector.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCDrawingPrimitives.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCGeometry.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCGL.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCGrabber.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCGrid.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCIMEDelegate.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCIMEDispatcher.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCKeypadDelegate.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCKeypadDispatcher.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCLabelAtlas.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCLabelBMFont.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCLabelTTF.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCLayer.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\ccMacros.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCMenu.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCMenuItem.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCMotionStreak.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCMutableArray.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCMutableDictionary.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCNode.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCNotificationCenter.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCNS.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCObject.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCParallaxNode.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCParticleExamples.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCParticleSystem.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCParticleSystemPoint.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCParticleSystemQuad.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCPointExtension.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCProgressTimer.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCProtocols.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCRenderTexture.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCRibbon.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCScene.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCScheduler.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCScriptSupport.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCScrollView.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCSet.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCSprite.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCSpriteAnimation.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCSpriteBatchNode.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCSpriteFrame.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCSpriteFrameCache.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCSpriteUrl.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCString.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCTextFieldTTF.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCTexture2D.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCTextureAtlas.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCTextureCache.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCTexturePVR.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCTileMapAtlas.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCTMXLayer.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCTMXObjectGroup.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCTMXTiledMap.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCTMXXMLParser.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCTouch.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCTouchDelegateProtocol.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCTouchDispatcher.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCTouchHandler.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCTransition.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCTransitionPageTurn.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCTransitionRadial.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\ccTypes.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCUserDefault.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\ccUtils.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\CCZone.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\include\cocos2d.h">
+      <Filter>Cocos2DX\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCPlatform.h">
+      <Filter>Cocos2DX\Source Files\platform</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Cocos2DX\src\support\image_support\TGAlib.cpp">
+      <Filter>Dependencies\image_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\support\zip_support\ioapi.cpp">
+      <Filter>Dependencies\zip_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\support\zip_support\unzip.cpp">
+      <Filter>Dependencies\zip_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\support\zip_support\ZipUtils.cpp">
+      <Filter>Dependencies\zip_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\support\CCArray.cpp">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\support\CCPointExtension.cpp">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\support\CCProfiling.cpp">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\support\CCUserDefault.cpp">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\support\TransformUtils.cpp">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\adler32.c">
+      <Filter>Dependencies\zip_support\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\compress.c">
+      <Filter>Dependencies\zip_support\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\crc32.c">
+      <Filter>Dependencies\zip_support\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\deflate.c">
+      <Filter>Dependencies\zip_support\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\gzclose.c">
+      <Filter>Dependencies\zip_support\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\gzlib.c">
+      <Filter>Dependencies\zip_support\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\gzread.c">
+      <Filter>Dependencies\zip_support\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\gzwrite.c">
+      <Filter>Dependencies\zip_support\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\infback.c">
+      <Filter>Dependencies\zip_support\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\inffast.c">
+      <Filter>Dependencies\zip_support\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\inflate.c">
+      <Filter>Dependencies\zip_support\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\inftrees.c">
+      <Filter>Dependencies\zip_support\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\trees.c">
+      <Filter>Dependencies\zip_support\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\uncompr.c">
+      <Filter>Dependencies\zip_support\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\zutil.c">
+      <Filter>Dependencies\zip_support\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jaricom.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jcapimin.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jcapistd.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jcarith.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jccoefct.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jccolor.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jcdctmgr.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jchuff.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jcinit.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jcmainct.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jcmarker.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jcmaster.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jcomapi.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jcparam.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jcprepct.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jcsample.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jctrans.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jdapimin.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jdapistd.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jdarith.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jdatadst.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jdatasrc.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jdcoefct.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jdcolor.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jddctmgr.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jdhuff.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jdinput.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jdmainct.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jdmarker.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jdmaster.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jdmerge.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jdpostct.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jdsample.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jdtrans.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jerror.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jfdctflt.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jfdctfst.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jfdctint.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jidctflt.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jidctfst.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jidctint.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jmemmgr.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jmemnobs.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jquant1.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jquant2.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\jpeg\jutils.c">
+      <Filter>Dependencies\image_support\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\png\png.c">
+      <Filter>Dependencies\image_support\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\png\pngerror.c">
+      <Filter>Dependencies\image_support\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\png\pnggccrd.c">
+      <Filter>Dependencies\image_support\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\png\pngget.c">
+      <Filter>Dependencies\image_support\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\png\pngmem.c">
+      <Filter>Dependencies\image_support\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\png\pngpread.c">
+      <Filter>Dependencies\image_support\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\png\pngread.c">
+      <Filter>Dependencies\image_support\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\png\pngrio.c">
+      <Filter>Dependencies\image_support\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\png\pngrtran.c">
+      <Filter>Dependencies\image_support\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\png\pngrutil.c">
+      <Filter>Dependencies\image_support\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\png\pngset.c">
+      <Filter>Dependencies\image_support\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\png\pngtrans.c">
+      <Filter>Dependencies\image_support\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\png\pngvcrd.c">
+      <Filter>Dependencies\image_support\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\png\pngwio.c">
+      <Filter>Dependencies\image_support\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\png\pngwrite.c">
+      <Filter>Dependencies\image_support\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\png\pngwtran.c">
+      <Filter>Dependencies\image_support\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\png\pngwutil.c">
+      <Filter>Dependencies\image_support\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\platform\CCCommon.cpp">
+      <Filter>Cocos2DX\Source Files\platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\platform\CCFileUtils.cpp">
+      <Filter>Cocos2DX\Source Files\platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\platform\CCGL.cpp">
+      <Filter>Cocos2DX\Source Files\platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\platform\CCImage.cpp">
+      <Filter>Cocos2DX\Source Files\platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\platform\CCSAXParser.cpp">
+      <Filter>Cocos2DX\Source Files\platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\platform\CCStdC.cpp">
+      <Filter>Cocos2DX\Source Files\platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\platform\CCThread.cpp">
+      <Filter>Cocos2DX\Source Files\platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\platform\win32\CCImage_win32.cpp">
+      <Filter>Cocos2DX\Source Files\platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\json\json_arraylist.c">
+      <Filter>Dependencies\json_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\json\json_debug.c">
+      <Filter>Dependencies\json_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\json\json_linkhash.c">
+      <Filter>Dependencies\json_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\json\json_object.c">
+      <Filter>Dependencies\json_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\json\json_printbuf.c">
+      <Filter>Dependencies\json_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\json\json_tokener.c">
+      <Filter>Dependencies\json_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\json\json_util.c">
+      <Filter>Dependencies\json_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\amigaos.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\asyn-ares.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\asyn-thread.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\axtls.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\base64.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\connect.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\content_encoding.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\cookie.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\curl_addrinfo.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\curl_darwinssl.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\curl_fnmatch.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\curl_gethostname.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\curl_gssapi.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\curl_memrchr.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\curl_multibyte.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\curl_ntlm.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\curl_ntlm_core.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\curl_ntlm_msgs.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\curl_ntlm_wb.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\curl_rand.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\curl_rtmp.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\curl_sasl.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\curl_schannel.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\curl_sspi.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\curl_threads.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\cyassl.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\dict.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\easy.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\escape.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\file.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\fileinfo.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\formdata.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\ftp.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\ftplistparser.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\getenv.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\getinfo.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\gopher.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\gtls.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\hash.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\hmac.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\hostasyn.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\hostcheck.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\hostip.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\hostip4.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\hostip6.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\hostsyn.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\http.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\http_chunks.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\http_digest.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\http_negotiate.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\http_negotiate_sspi.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\http_proxy.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\idn_win32.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\if2ip.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\imap.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\inet_ntop.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\inet_pton.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\krb4.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\krb5.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\ldap.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\llist.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\md4.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\md5.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\memdebug.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\mprintf.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\multi.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\netrc.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\non-ascii.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\nonblock.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\nss.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\nwlib.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\nwos.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\openldap.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\parsedate.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\pingpong.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\polarssl.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\pop3.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\progress.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\qssl.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\rawstr.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\rtsp.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\security.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\select.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\sendf.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\share.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\slist.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\smtp.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\socks.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\socks_gssapi.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\socks_sspi.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\speedcheck.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\splay.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\ssh.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\sslgen.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\ssluse.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\strdup.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\strequal.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\strerror.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\strtok.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\strtoofft.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\telnet.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\tftp.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\timeval.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\transfer.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\url.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\version.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\warnless.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\curl\wildcard.c">
+      <Filter>Dependencies\curl_support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\support\ccBase64.cpp">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCAction.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionCamera.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionEase.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionGrid.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionGrid3D.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionInstant.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionInterval.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionManager.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionPageTurn3D.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionProgressTimer.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionTiledGrid.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionTween.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCAffineTransform.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCAnimation.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCAnimationCache.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCAtlasNode.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCAutoreleasePool.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCCamera.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCConfiguration.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCData.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCDirector.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCDrawingPrimitives.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCGeometry.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCGrabber.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCGrid.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCIMEDispatcher.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCKeypadDelegate.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCKeypadDispatcher.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCLabelAtlas.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCLabelBMFont.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCLabelTTF.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCLayer.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCMenu.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCMenuItem.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCMotionStreak.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCNode.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCNotificationCenter.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCNS.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCObject.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCParallaxNode.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCParticleExamples.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCParticleSystem.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCParticleSystemPoint.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCParticleSystemQuad.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCProgressTimer.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCRenderTexture.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCRibbon.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCScene.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCScheduler.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCScriptSupport.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCScrollView.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCSet.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCSprite.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCSpriteAnimation.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCSpriteBatchNode.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCSpriteFrame.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCSpriteFrameCache.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCSpriteUrl.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCTextFieldTTF.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCTexture2D.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCTextureAtlas.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCTextureCache.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCTexturePVR.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCTileMapAtlas.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCTMXLayer.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCTMXObjectGroup.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCTMXTiledMap.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCTMXXMLParser.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCTouchDispatcher.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCTouchHandler.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCTransition.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCTransitionPageTurn.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCTransitionRadial.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\ccUtils.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\CCZone.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\cocos2d.cpp">
+      <Filter>Cocos2DX\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Cocos2DX\src\platform\CCPlatform.cpp">
+      <Filter>Cocos2DX\Source Files\platform</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

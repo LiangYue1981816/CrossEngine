@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MaxExporter", "MaxExporter.vcxproj", "{EC589AC8-C22E-4A5B-8A3F-A72EC569ED3C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Max2010_Debug|Win32 = Max2010_Debug|Win32
+		Max2010_Release|Win32 = Max2010_Release|Win32
+		Max2011_Debug|Win32 = Max2011_Debug|Win32
+		Max2011_Release|Win32 = Max2011_Release|Win32
+		Max2012_Debug|Win32 = Max2012_Debug|Win32
+		Max2012_Release|Win32 = Max2012_Release|Win32
+		Max9.0_Debug|Win32 = Max9.0_Debug|Win32
+		Max9.0_Release|Win32 = Max9.0_Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC589AC8-C22E-4A5B-8A3F-A72EC569ED3C}.Max2010_Debug|Win32.ActiveCfg = Max2010_Debug|Win32
+		{EC589AC8-C22E-4A5B-8A3F-A72EC569ED3C}.Max2010_Debug|Win32.Build.0 = Max2010_Debug|Win32
+		{EC589AC8-C22E-4A5B-8A3F-A72EC569ED3C}.Max2010_Release|Win32.ActiveCfg = Max2010_Release|Win32
+		{EC589AC8-C22E-4A5B-8A3F-A72EC569ED3C}.Max2010_Release|Win32.Build.0 = Max2010_Release|Win32
+		{EC589AC8-C22E-4A5B-8A3F-A72EC569ED3C}.Max2011_Debug|Win32.ActiveCfg = Max2011_Debug|Win32
+		{EC589AC8-C22E-4A5B-8A3F-A72EC569ED3C}.Max2011_Debug|Win32.Build.0 = Max2011_Debug|Win32
+		{EC589AC8-C22E-4A5B-8A3F-A72EC569ED3C}.Max2011_Release|Win32.ActiveCfg = Max2011_Release|Win32
+		{EC589AC8-C22E-4A5B-8A3F-A72EC569ED3C}.Max2011_Release|Win32.Build.0 = Max2011_Release|Win32
+		{EC589AC8-C22E-4A5B-8A3F-A72EC569ED3C}.Max2012_Debug|Win32.ActiveCfg = Max2012_Debug|Win32
+		{EC589AC8-C22E-4A5B-8A3F-A72EC569ED3C}.Max2012_Debug|Win32.Build.0 = Max2012_Debug|Win32
+		{EC589AC8-C22E-4A5B-8A3F-A72EC569ED3C}.Max2012_Release|Win32.ActiveCfg = Max2012_Release|Win32
+		{EC589AC8-C22E-4A5B-8A3F-A72EC569ED3C}.Max2012_Release|Win32.Build.0 = Max2012_Release|Win32
+		{EC589AC8-C22E-4A5B-8A3F-A72EC569ED3C}.Max9.0_Debug|Win32.ActiveCfg = Max9.0_Debug|Win32
+		{EC589AC8-C22E-4A5B-8A3F-A72EC569ED3C}.Max9.0_Debug|Win32.Build.0 = Max9.0_Debug|Win32
+		{EC589AC8-C22E-4A5B-8A3F-A72EC569ED3C}.Max9.0_Release|Win32.ActiveCfg = Max9.0_Release|Win32
+		{EC589AC8-C22E-4A5B-8A3F-A72EC569ED3C}.Max9.0_Release|Win32.Build.0 = Max9.0_Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

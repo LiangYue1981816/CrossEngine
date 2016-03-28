@@ -1,0 +1,817 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{5c18bd91-2467-40b1-acd9-0bacaf990e0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Engine\Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Dependencies">
+      <UniqueIdentifier>{1e19d85f-ba1f-493f-8329-b80a43c84462}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\glew">
+      <UniqueIdentifier>{bb762c6b-72af-4f83-bcaa-e5aa2ed6390c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\zlib">
+      <UniqueIdentifier>{c8fe5170-a318-4916-8cb9-92396c1484c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\zzip">
+      <UniqueIdentifier>{c629e8cf-b968-4589-9126-c0fa1d034441}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Header Files\Base">
+      <UniqueIdentifier>{963027c6-78cf-4653-b4d5-7d546a65c1cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Header Files\RenderSystem">
+      <UniqueIdentifier>{b822e9b3-8339-43c8-9099-e13eb12194cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Header Files\ResourceSystem">
+      <UniqueIdentifier>{33699af1-bc88-4030-be58-8d990818c9fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Header Files\SoundSystem">
+      <UniqueIdentifier>{10454a20-15d6-45d5-a5e3-2a818c98bc8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Header Files\SceneSystem">
+      <UniqueIdentifier>{347531b1-7a90-4b2b-83b3-01b603588a8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Header Files\Physics">
+      <UniqueIdentifier>{01e052be-6768-4d78-bd54-a05069f4b8a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Source Files\Base">
+      <UniqueIdentifier>{c368717a-f068-4fa8-82bc-25cc5f016b84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Source Files\Physics">
+      <UniqueIdentifier>{5ba12e23-757f-4b17-86e5-d817d4d44bdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Source Files\RenderSystem">
+      <UniqueIdentifier>{49e0077e-926b-4912-b7e5-907a166c8fb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Source Files\ResourceSystem">
+      <UniqueIdentifier>{11cfd807-0073-46ed-b0eb-b08577dcc315}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Source Files\SceneSystem">
+      <UniqueIdentifier>{2a4d4ce0-e9ef-4a0b-97f7-97fa32c36a51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Source Files\SoundSystem">
+      <UniqueIdentifier>{5042ac57-2156-498a-a58d-611a28b4db8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Header Files\Entity">
+      <UniqueIdentifier>{1c81690c-c05a-48d9-a558-53c024cac6eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Source Files\Entity">
+      <UniqueIdentifier>{ed085856-da79-4c54-a95e-a9b487d288e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Media">
+      <UniqueIdentifier>{b34699f9-00cb-40cd-af72-540b00c04785}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Media\RenderFlow">
+      <UniqueIdentifier>{92418d1e-8911-4f1f-ae83-cac5ab718e7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Media\Shader">
+      <UniqueIdentifier>{17911ab4-c31e-45f9-b072-2f76c4e5e0fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Header Files\ParticleSystem">
+      <UniqueIdentifier>{9f36ad57-20a5-4b98-99c9-1bad2d836566}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Source Files\ParticleSystem">
+      <UniqueIdentifier>{0fa68b18-fb7e-42d2-929e-f9d7f67681ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\lua">
+      <UniqueIdentifier>{259a5e80-1920-47da-a79d-337fb08fb43a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\picoc">
+      <UniqueIdentifier>{0dbf6ae4-5040-47ed-96ce-e5e0dda00999}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\picoc\stdlib">
+      <UniqueIdentifier>{616ff252-ddcd-4211-905f-e0fef5ef4aaf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\CrossEngine\include\CrossEngine.h">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\src\_CrossEngine.h">
+      <Filter>Engine\Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossC.h">
+      <Filter>Engine\Header Files\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossList.h">
+      <Filter>Engine\Header Files\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossLog.h">
+      <Filter>Engine\Header Files\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossMath.h">
+      <Filter>Engine\Header Files\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossMemory.h">
+      <Filter>Engine\Header Files\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossRenderer.h">
+      <Filter>Engine\Header Files\RenderSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossRenderFlow.h">
+      <Filter>Engine\Header Files\RenderSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossRenderQuene.h">
+      <Filter>Engine\Header Files\RenderSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossRenderSystem.h">
+      <Filter>Engine\Header Files\RenderSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossOpenGL.h">
+      <Filter>Engine\Header Files\RenderSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossMaterial.h">
+      <Filter>Engine\Header Files\ResourceSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossMaterialManager.h">
+      <Filter>Engine\Header Files\ResourceSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossResource.h">
+      <Filter>Engine\Header Files\ResourceSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossResourceManager.h">
+      <Filter>Engine\Header Files\ResourceSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossResourceSystem.h">
+      <Filter>Engine\Header Files\ResourceSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossShader.h">
+      <Filter>Engine\Header Files\ResourceSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossShaderManager.h">
+      <Filter>Engine\Header Files\ResourceSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossSharedPtr.h">
+      <Filter>Engine\Header Files\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossSceneManager.h">
+      <Filter>Engine\Header Files\SceneSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossSceneNode.h">
+      <Filter>Engine\Header Files\SceneSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossStream.h">
+      <Filter>Engine\Header Files\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossTexture.h">
+      <Filter>Engine\Header Files\ResourceSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossTextureManager.h">
+      <Filter>Engine\Header Files\ResourceSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossType.h">
+      <Filter>Engine\Header Files\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossUtility.h">
+      <Filter>Engine\Header Files\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossSoundSystem.h">
+      <Filter>Engine\Header Files\SoundSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\tinystr.h">
+      <Filter>Engine\Header Files\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\tinyxml.h">
+      <Filter>Engine\Header Files\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossPhysics.h">
+      <Filter>Engine\Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossEntity.h">
+      <Filter>Engine\Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossEntityRenderable.h">
+      <Filter>Engine\Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossEntityLight.h">
+      <Filter>Engine\Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossEntityCamera.h">
+      <Filter>Engine\Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossLightGrid.h">
+      <Filter>Engine\Header Files\SceneSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossOcclusionCulling.h">
+      <Filter>Engine\Header Files\SceneSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossOctreeCulling.h">
+      <Filter>Engine\Header Files\SceneSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossEntityEffect.h">
+      <Filter>Engine\Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossEntityHalo.h">
+      <Filter>Engine\Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossEntityMesh.h">
+      <Filter>Engine\Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossEntitySkin.h">
+      <Filter>Engine\Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossSceneSystem.h">
+      <Filter>Engine\Header Files\SceneSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossMesh.h">
+      <Filter>Engine\Header Files\ResourceSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossMeshManager.h">
+      <Filter>Engine\Header Files\ResourceSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossSkeleton.h">
+      <Filter>Engine\Header Files\ResourceSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossSkeletonManager.h">
+      <Filter>Engine\Header Files\ResourceSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\PxToolkit\PxTkBmpLoader.h">
+      <Filter>Engine\Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\PxToolkit\PxTkFPS.h">
+      <Filter>Engine\Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\PxToolkit\PxTkMatrixUtils.h">
+      <Filter>Engine\Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\PxToolkit\PxTkNamespaceMangle.h">
+      <Filter>Engine\Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\PxToolkit\PxTkRandom.h">
+      <Filter>Engine\Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\PxToolkit\PxTkStream.h">
+      <Filter>Engine\Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\PxToolkit\PxToolkit.h">
+      <Filter>Engine\Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossPhysicsManager.h">
+      <Filter>Engine\Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossEntityShadow.h">
+      <Filter>Engine\Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticle.h">
+      <Filter>Engine\Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleSystem.h">
+      <Filter>Engine\Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleGfx.h">
+      <Filter>Engine\Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleAffector.h">
+      <Filter>Engine\Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleEmitter.h">
+      <Filter>Engine\Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleEmitterBox.h">
+      <Filter>Engine\Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleEmitterPoint.h">
+      <Filter>Engine\Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleEmitterSphere.h">
+      <Filter>Engine\Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleAffectorColor.h">
+      <Filter>Engine\Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleAffectorForce.h">
+      <Filter>Engine\Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleAffectorKeepLocal.h">
+      <Filter>Engine\Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleAffectorRandom.h">
+      <Filter>Engine\Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleAffectorRotate.h">
+      <Filter>Engine\Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleAffectorScale.h">
+      <Filter>Engine\Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleAffectorTexture.h">
+      <Filter>Engine\Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleAffectorVelocity.h">
+      <Filter>Engine\Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleGfxBillboard.h">
+      <Filter>Engine\Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleGfxDebug.h">
+      <Filter>Engine\Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossEffect.h">
+      <Filter>Engine\Header Files\ResourceSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossEffectManager.h">
+      <Filter>Engine\Header Files\ResourceSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossSound.h">
+      <Filter>Engine\Header Files\ResourceSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossSoundManager.h">
+      <Filter>Engine\Header Files\ResourceSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossProfiler.h">
+      <Filter>Engine\Header Files\Base</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Dependencies\glew\glew.c">
+      <Filter>Dependencies\glew</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\adler32.c">
+      <Filter>Dependencies\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\compress.c">
+      <Filter>Dependencies\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\crc32.c">
+      <Filter>Dependencies\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\deflate.c">
+      <Filter>Dependencies\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\gzclose.c">
+      <Filter>Dependencies\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\gzlib.c">
+      <Filter>Dependencies\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\gzread.c">
+      <Filter>Dependencies\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\gzwrite.c">
+      <Filter>Dependencies\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\infback.c">
+      <Filter>Dependencies\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\inffast.c">
+      <Filter>Dependencies\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\inflate.c">
+      <Filter>Dependencies\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\inftrees.c">
+      <Filter>Dependencies\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\trees.c">
+      <Filter>Dependencies\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\uncompr.c">
+      <Filter>Dependencies\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zlib\zutil.c">
+      <Filter>Dependencies\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zzip\dir.c">
+      <Filter>Dependencies\zzip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zzip\err.c">
+      <Filter>Dependencies\zzip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zzip\fetch.c">
+      <Filter>Dependencies\zzip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zzip\file.c">
+      <Filter>Dependencies\zzip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zzip\info.c">
+      <Filter>Dependencies\zzip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zzip\plugin.c">
+      <Filter>Dependencies\zzip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zzip\stat.c">
+      <Filter>Dependencies\zzip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\zzip\zip.c">
+      <Filter>Dependencies\zzip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossEngine.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossC.cpp">
+      <Filter>Engine\Source Files\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossLog.cpp">
+      <Filter>Engine\Source Files\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossMemory.cpp">
+      <Filter>Engine\Source Files\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossMaterial.cpp">
+      <Filter>Engine\Source Files\ResourceSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossMaterialManager.cpp">
+      <Filter>Engine\Source Files\ResourceSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossMaterialPass.cpp">
+      <Filter>Engine\Source Files\ResourceSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossMaterialPassGroup.cpp">
+      <Filter>Engine\Source Files\ResourceSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossMaterialPhysics.cpp">
+      <Filter>Engine\Source Files\ResourceSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossMaterialSolution.cpp">
+      <Filter>Engine\Source Files\ResourceSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossOpenGL.cpp">
+      <Filter>Engine\Source Files\RenderSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossRenderer.cpp">
+      <Filter>Engine\Source Files\RenderSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossRenderFlow.cpp">
+      <Filter>Engine\Source Files\RenderSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossRenderQuene.cpp">
+      <Filter>Engine\Source Files\RenderSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossRenderSolution.cpp">
+      <Filter>Engine\Source Files\RenderSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossRenderStage.cpp">
+      <Filter>Engine\Source Files\RenderSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossRenderSystem.cpp">
+      <Filter>Engine\Source Files\RenderSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossRenderTarget.cpp">
+      <Filter>Engine\Source Files\RenderSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossPhysics.cpp">
+      <Filter>Engine\Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossResource.cpp">
+      <Filter>Engine\Source Files\ResourceSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossResourceManager.cpp">
+      <Filter>Engine\Source Files\ResourceSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossResourceSystem.cpp">
+      <Filter>Engine\Source Files\ResourceSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossSceneManager.cpp">
+      <Filter>Engine\Source Files\SceneSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossSceneNode.cpp">
+      <Filter>Engine\Source Files\SceneSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossShader.cpp">
+      <Filter>Engine\Source Files\ResourceSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossShaderManager.cpp">
+      <Filter>Engine\Source Files\ResourceSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossTexture.cpp">
+      <Filter>Engine\Source Files\ResourceSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossTextureManager.cpp">
+      <Filter>Engine\Source Files\ResourceSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossSoundSystem.cpp">
+      <Filter>Engine\Source Files\SoundSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossUtility.cpp">
+      <Filter>Engine\Source Files\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossStream.cpp">
+      <Filter>Engine\Source Files\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\tinystr.cpp">
+      <Filter>Engine\Source Files\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\tinyxml.cpp">
+      <Filter>Engine\Source Files\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\tinyxmlerror.cpp">
+      <Filter>Engine\Source Files\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\tinyxmlparser.cpp">
+      <Filter>Engine\Source Files\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossEntity.cpp">
+      <Filter>Engine\Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossEntityRenderable.cpp">
+      <Filter>Engine\Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossEntityLight.cpp">
+      <Filter>Engine\Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossEntityCamera.cpp">
+      <Filter>Engine\Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossLightGrid.cpp">
+      <Filter>Engine\Source Files\SceneSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossOcclusionCulling.cpp">
+      <Filter>Engine\Source Files\SceneSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossOctreeCulling.cpp">
+      <Filter>Engine\Source Files\SceneSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossEntityEffect.cpp">
+      <Filter>Engine\Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossEntityHalo.cpp">
+      <Filter>Engine\Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossEntityMesh.cpp">
+      <Filter>Engine\Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossEntitySkin.cpp">
+      <Filter>Engine\Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossSceneSystem.cpp">
+      <Filter>Engine\Source Files\SceneSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossMesh.cpp">
+      <Filter>Engine\Source Files\ResourceSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossMeshManager.cpp">
+      <Filter>Engine\Source Files\ResourceSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossSkeleton.cpp">
+      <Filter>Engine\Source Files\ResourceSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossSkeletonManager.cpp">
+      <Filter>Engine\Source Files\ResourceSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\PxToolkit\PxTkBmpLoader.cpp">
+      <Filter>Engine\Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\PxToolkit\PxTkFPS.cpp">
+      <Filter>Engine\Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\PxToolkit\PxTkMatrixUtils.cpp">
+      <Filter>Engine\Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\PxToolkit\PxTkRandom.cpp">
+      <Filter>Engine\Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\PxToolkit\PxTkStream.cpp">
+      <Filter>Engine\Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossPhysicsManager.cpp">
+      <Filter>Engine\Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossEntityShadow.cpp">
+      <Filter>Engine\Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleSystem.cpp">
+      <Filter>Engine\Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticle.cpp">
+      <Filter>Engine\Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleGfx.cpp">
+      <Filter>Engine\Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleAffector.cpp">
+      <Filter>Engine\Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleEmitter.cpp">
+      <Filter>Engine\Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleEmitterBox.cpp">
+      <Filter>Engine\Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleEmitterPoint.cpp">
+      <Filter>Engine\Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleEmitterSphere.cpp">
+      <Filter>Engine\Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleAffectorColor.cpp">
+      <Filter>Engine\Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleAffectorForce.cpp">
+      <Filter>Engine\Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleAffectorKeepLocal.cpp">
+      <Filter>Engine\Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleAffectorRandom.cpp">
+      <Filter>Engine\Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleAffectorRotate.cpp">
+      <Filter>Engine\Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleAffectorScale.cpp">
+      <Filter>Engine\Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleAffectorTexture.cpp">
+      <Filter>Engine\Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleAffectorVelocity.cpp">
+      <Filter>Engine\Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleGfxBillboard.cpp">
+      <Filter>Engine\Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleGfxDebug.cpp">
+      <Filter>Engine\Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossMath.cpp">
+      <Filter>Engine\Source Files\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\lapi.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\lauxlib.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\lbaselib.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\lbitlib.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\lcode.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\lcorolib.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\lctype.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\ldblib.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\ldebug.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\ldo.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\ldump.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\lfunc.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\lgc.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\linit.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\liolib.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\llex.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\lmathlib.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\lmem.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\loadlib.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\lobject.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\lopcodes.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\loslib.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\lparser.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\lstate.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\lstring.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\lstrlib.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\ltable.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\ltablib.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\ltm.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\luac.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\lundump.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\lutf8lib.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\lvm.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\lua\lzio.c">
+      <Filter>Dependencies\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossEffect.cpp">
+      <Filter>Engine\Source Files\ResourceSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossEffectManager.cpp">
+      <Filter>Engine\Source Files\ResourceSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossSound.cpp">
+      <Filter>Engine\Source Files\ResourceSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossSoundManager.cpp">
+      <Filter>Engine\Source Files\ResourceSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossProfiler.cpp">
+      <Filter>Engine\Source Files\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\picoc\clibrary.c">
+      <Filter>Dependencies\picoc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\picoc\debug.c">
+      <Filter>Dependencies\picoc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\picoc\expression.c">
+      <Filter>Dependencies\picoc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\picoc\heap.c">
+      <Filter>Dependencies\picoc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\picoc\include.c">
+      <Filter>Dependencies\picoc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\picoc\lex.c">
+      <Filter>Dependencies\picoc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\picoc\parse.c">
+      <Filter>Dependencies\picoc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\picoc\platform.c">
+      <Filter>Dependencies\picoc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\picoc\table.c">
+      <Filter>Dependencies\picoc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\picoc\type.c">
+      <Filter>Dependencies\picoc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\picoc\variable.c">
+      <Filter>Dependencies\picoc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\picoc\cstdlib\ctype.c">
+      <Filter>Dependencies\picoc\stdlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\picoc\cstdlib\errno.c">
+      <Filter>Dependencies\picoc\stdlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\picoc\cstdlib\math.c">
+      <Filter>Dependencies\picoc\stdlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\picoc\cstdlib\stdbool.c">
+      <Filter>Dependencies\picoc\stdlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\picoc\cstdlib\stdio.c">
+      <Filter>Dependencies\picoc\stdlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\picoc\cstdlib\stdlib.c">
+      <Filter>Dependencies\picoc\stdlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\picoc\cstdlib\string.c">
+      <Filter>Dependencies\picoc\stdlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Dependencies\picoc\cstdlib\time.c">
+      <Filter>Dependencies\picoc\stdlib</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\CrossEngine\media\Engine\RenderFlow_ES.xml">
+      <Filter>Media\RenderFlow</Filter>
+    </Xml>
+  </ItemGroup>
+</Project>

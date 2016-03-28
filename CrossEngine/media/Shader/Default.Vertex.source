@@ -1,0 +1,435 @@
+<Shader type="vertex" compatible="gles3">
+<Parameters>
+</Parameters>
+
+<Source>
+<![CDATA[
+// #define ENABLE_SKINNING
+// #define ENABLE_FOG
+// #define ENABLE_LIGHTING_UNIT0
+// #define ENABLE_LIGHTING_UNIT1
+// #define ENABLE_DIFFUSELIGHTING
+// #define ENABLE_SPECULARING
+// #define ENABLE_RIMLIGHTING
+// #define ENABLE_SKYLIGHTING
+// #define ENABLE_AMBIENT_OCCLUSION
+// #define ENABLE_ENVMAP
+// #define ENABLE_LIGHTMAP
+// #define ENABLE_NORMALMAP
+// #define ENABLE_SPECULARMAP
+// #define ENABLE_SHADOWMAP
+// #define ENABLE_SHADOWMAP_PCF
+// #define ENABLE_SHADOWMAP_PCF2X2
+// #define ENABLE_MRT_COLOR_DEPTH
+// #define ENABLE_OPTIONAL_NORMALIZE
+// #define ENABLE_ALPHA_TEST
+
+
+#define MAX_BONES 55
+#define MAX_LIGHTS 2
+
+
+#if defined GL_ES
+	#define IS_GLSL300_BEGIN #if __VERSION__ >= 300
+	#define IS_GLSL300_ELSE  #else
+	#define IS_GLSL300_END   #endif
+
+	IS_GLSL300_BEGIN
+		#define DEFINE_ATTRIBUTE #define ATTRIBUTE in
+		#define DEFINE_VARYING #define VARYING out
+		DEFINE_ATTRIBUTE
+		DEFINE_VARYING
+	IS_GLSL300_ELSE
+		#define DEFINE_ATTRIBUTE #define ATTRIBUTE attribute
+		#define DEFINE_VARYING #define VARYING varying
+		DEFINE_ATTRIBUTE
+		DEFINE_VARYING
+	IS_GLSL300_END
+
+	#define LOWP lowp
+	#define MEDIUMP mediump
+	#define HIGHP highp
+
+	#define UNIFORM_LOWP uniform lowp
+	#define UNIFORM_MEDIUMP uniform mediump
+	#define UNIFORM_HIGHP uniform highp
+
+	#define ATTRIBUTE_LOWP ATTRIBUTE lowp
+	#define ATTRIBUTE_MEDIUMP ATTRIBUTE mediump
+	#define ATTRIBUTE_HIGHP ATTRIBUTE highp
+
+	#define VARYING_LOWP VARYING lowp
+	#define VARYING_MEDIUMP VARYING mediump
+	#define VARYING_HIGHP VARYING mediump // highp (Compatible Mali GPU)
+#else
+	#define IS_GLSL300_BEGIN #if 1
+	#define IS_GLSL300_ELSE  #else
+	#define IS_GLSL300_END   #endif
+
+	#define LOWP
+	#define MEDIUMP
+	#define HIGHP
+
+	#define UNIFORM_LOWP uniform
+	#define UNIFORM_MEDIUMP uniform
+	#define UNIFORM_HIGHP uniform
+
+	#define ATTRIBUTE_LOWP attribute
+	#define ATTRIBUTE_MEDIUMP attribute
+	#define ATTRIBUTE_HIGHP attribute
+
+	#define VARYING_LOWP varying
+	#define VARYING_MEDIUMP varying
+	#define VARYING_HIGHP varying
+#endif
+
+
+ATTRIBUTE_HIGHP vec3 _position;
+ATTRIBUTE_MEDIUMP vec2 _texcoord0;
+
+#if defined ENABLE_LIGHTMAP
+	ATTRIBUTE_MEDIUMP vec2 _texcoord1;
+#endif
+
+#if defined ENABLE_NORMALMAP || defined ENABLE_ENVMAP || defined ENABLE_DIFFUSELIGHTING || defined ENABLE_SPECULARING || defined ENABLE_RIMLIGHTING || defined ENABLE_SKYLIGHTING
+	ATTRIBUTE_MEDIUMP vec3 _normal;
+#endif
+
+#if defined ENABLE_NORMALMAP
+	ATTRIBUTE_MEDIUMP vec3 _binormal;
+#endif
+
+#if defined ENABLE_SKINNING
+	ATTRIBUTE_MEDIUMP vec4 _indices;
+	ATTRIBUTE_MEDIUMP vec4 _weights;
+#endif
+
+
+UNIFORM_HIGHP mat4 _modelViewProjectionMatrix;
+UNIFORM_HIGHP mat4 _textureMatrix0;
+
+#if defined ENABLE_ENVMAP
+	UNIFORM_HIGHP vec3 _cameraPosition;
+#endif
+
+#if defined ENABLE_ENVMAP || defined ENABLE_SHADOWMAP
+	UNIFORM_HIGHP mat4 _modelWorldMatrix;
+	UNIFORM_HIGHP mat4 _shadowLightProjectionMatrix;
+#endif
+
+#if defined ENABLE_LIGHTMAP
+	UNIFORM_HIGHP mat4 _textureMatrix1;
+#endif
+
+#if defined ENABLE_DIFFUSELIGHTING || defined ENABLE_SPECULARING || defined ENABLE_RIMLIGHTING || defined ENABLE_SKYLIGHTING || defined ENABLE_FOG || defined ENABLE_MRT_COLOR_DEPTH
+	UNIFORM_HIGHP mat4 _modelViewMatrix;
+#endif
+
+#if defined ENABLE_DIFFUSELIGHTING || defined ENABLE_SPECULARING || defined ENABLE_RIMLIGHTING || defined ENABLE_SKYLIGHTING
+	UNIFORM_HIGHP mat4 _modelViewInverseTransposeMatrix;
+
+	UNIFORM_LOWP int _lightCount;
+	UNIFORM_HIGHP vec4 _lightPosition[MAX_LIGHTS];
+#endif
+
+#if defined ENABLE_SKINNING
+	UNIFORM_HIGHP mat4 _boneMatrices[MAX_BONES];
+#endif
+
+
+VARYING_MEDIUMP vec4 vTexCoord;
+
+#if defined ENABLE_ENVMAP
+	VARYING_MEDIUMP vec3 vRefViewDirection;
+
+	#if defined ENABLE_NORMALMAP
+		VARYING_MEDIUMP mat3 vRefTBN;
+	#else
+		VARYING_MEDIUMP vec3 vRefNormal;
+	#endif
+#endif
+
+#if defined ENABLE_SHADOWMAP
+	VARYING_HIGHP vec4 vShadowProjCoord;
+#endif
+
+#if defined ENABLE_DIFFUSELIGHTING || defined ENABLE_SPECULARING || defined ENABLE_RIMLIGHTING || defined ENABLE_FOG || defined ENABLE_MRT_COLOR_DEPTH
+	VARYING_HIGHP vec3 vPosition;
+#endif
+
+#if defined ENABLE_DIFFUSELIGHTING || defined ENABLE_SPECULARING || defined ENABLE_RIMLIGHTING || defined ENABLE_SKYLIGHTING
+	#if !defined ENABLE_NORMALMAP
+		VARYING_MEDIUMP vec3 vNormal;
+	#endif
+
+	#if defined ENABLE_DIFFUSELIGHTING
+		VARYING_MEDIUMP vec3 vLightDirection[MAX_LIGHTS];
+	#endif
+
+	#if defined ENABLE_SPECULARING
+		VARYING_MEDIUMP vec3 vHalfVector[MAX_LIGHTS];
+	#endif
+
+	#if defined ENABLE_RIMLIGHTING
+		VARYING_MEDIUMP vec3 vCameraVector;
+	#endif
+
+	#if defined ENABLE_SKYLIGHTING && defined ENABLE_NORMALMAP
+		VARYING_MEDIUMP vec3 vTangentUpVector;
+	#endif
+#endif
+
+
+const LOWP float c_zero = 0.0;
+const LOWP float c_one  = 1.0;
+
+const LOWP int index_zero = 0;
+const LOWP int index_one  = 1;
+
+const MEDIUMP vec3 unitVector = vec3(0.0, 0.0, 1.0);
+
+
+void main()
+{
+	HIGHP vec3 localPosition;
+
+	#if defined ENABLE_NORMALMAP || defined ENABLE_ENVMAP || defined ENABLE_DIFFUSELIGHTING || defined ENABLE_SPECULARING || defined ENABLE_RIMLIGHTING || defined ENABLE_SKYLIGHTING
+		MEDIUMP vec3 localNormal;
+	#endif
+
+	#if defined ENABLE_NORMALMAP
+		MEDIUMP vec3 localBinormal;
+	#endif
+
+	#if defined ENABLE_SKINNING
+		MEDIUMP ivec4 indices = ivec4(_indices);
+	#endif
+
+	#if defined ENABLE_SKINNING
+	{
+		localPosition = (_boneMatrices[indices.x] * vec4(_position, 1.0)).xyz * _weights.x + (_boneMatrices[indices.y] * vec4(_position, 1.0)).xyz * _weights.y;
+	}
+	#else
+	{
+		localPosition = _position;
+	}
+	#endif
+
+	#if defined ENABLE_NORMALMAP || defined ENABLE_ENVMAP || defined ENABLE_DIFFUSELIGHTING || defined ENABLE_SPECULARING || defined ENABLE_RIMLIGHTING || defined ENABLE_SKYLIGHTING
+	{
+		#if defined ENABLE_SKINNING
+		{
+			localNormal = (_boneMatrices[indices.x] * vec4(_normal, 0.0)).xyz * _weights.x + (_boneMatrices[indices.y] * vec4(_normal, 0.0)).xyz * _weights.y;
+		}
+		#else
+		{
+			localNormal = _normal;
+		}
+		#endif
+	}
+	#endif
+
+	#if defined ENABLE_NORMALMAP
+	{
+		#if defined ENABLE_SKINNING
+		{
+			localBinormal = (_boneMatrices[indices.x] * vec4(_binormal, 0.0)).xyz * _weights.x + (_boneMatrices[indices.y] * vec4(_binormal, 0.0)).xyz * _weights.y;
+		}
+		#else
+		{
+			localBinormal = _binormal;
+		}
+		#endif
+	}
+	#endif
+
+	#if defined ENABLE_ENVMAP
+	{
+		vRefViewDirection = (_modelWorldMatrix * vec4(localPosition, 1.0)).xyz - _cameraPosition;
+		vRefViewDirection = normalize(vRefViewDirection);
+
+		MEDIUMP vec3 worldNormal;
+		worldNormal = (_modelWorldMatrix * vec4(localNormal, 0.0)).xyz;
+		worldNormal = normalize(worldNormal);
+
+		#if defined ENABLE_NORMALMAP
+		{
+			MEDIUMP vec3 worldBinormal;
+			worldBinormal = (_modelWorldMatrix * vec4(localBinormal, 0.0)).xyz;
+			worldBinormal = normalize(worldBinormal);
+
+			MEDIUMP vec3 t = cross(worldBinormal, worldNormal);
+			MEDIUMP vec3 b = cross(worldNormal, t);
+			vRefTBN = mat3(t, b, worldNormal);
+		}
+		#else
+		{
+			vRefNormal = worldNormal;
+		}
+		#endif
+	}
+	#endif
+
+	#if defined ENABLE_DIFFUSELIGHTING || defined ENABLE_SPECULARING || defined ENABLE_RIMLIGHTING || defined ENABLE_FOG || defined ENABLE_MRT_COLOR_DEPTH
+		HIGHP vec3 viewPosition = (_modelViewMatrix * vec4(localPosition, 1.0)).xyz;
+	#endif
+
+	#if defined ENABLE_DIFFUSELIGHTING || defined ENABLE_SPECULARING || defined ENABLE_RIMLIGHTING || defined ENABLE_SKYLIGHTING
+	{
+		#if defined ENABLE_RIMLIGHTING || defined ENABLE_SPECULARING
+			MEDIUMP vec3 positionVector = normalize(viewPosition);
+		#endif
+
+		MEDIUMP vec3 viewNormal = (_modelViewInverseTransposeMatrix * vec4(localNormal, 0.0)).xyz;
+		viewNormal = normalize(viewNormal);
+
+		#if defined ENABLE_LIGHTING_UNIT0
+		{
+			if (0 < _lightCount)
+			{
+				#if defined ENABLE_DIFFUSELIGHTING || defined ENABLE_SPECULARING
+				{
+					if (_lightPosition[0].w == c_zero)
+					{
+						vLightDirection[0] = _lightPosition[0].xyz;
+					}
+					else
+					{
+						vLightDirection[0] = normalize(_lightPosition[0].xyz - viewPosition);
+					}
+				}
+				#endif
+
+				#if defined ENABLE_SPECULARING
+				{
+					vHalfVector[0] = normalize(vLightDirection[0] - positionVector);
+				}
+				#endif
+			}
+		}
+		#endif
+
+		#if defined ENABLE_LIGHTING_UNIT1
+		{
+			if (1 < _lightCount)
+			{
+				#if defined ENABLE_DIFFUSELIGHTING || defined ENABLE_SPECULARING
+				{
+					if (_lightPosition[1].w == c_zero)
+					{
+						vLightDirection[1] = _lightPosition[1].xyz;
+					}
+					else
+					{
+						vLightDirection[1] = normalize(_lightPosition[1].xyz - viewPosition);
+					}
+				}
+				#endif
+
+				#if defined ENABLE_SPECULARING
+				{
+					vHalfVector[1] = normalize(vLightDirection[1] - positionVector);
+				}
+				#endif
+			}
+		}
+		#endif
+
+		#if defined ENABLE_RIMLIGHTING
+		{
+			vCameraVector = positionVector;
+		}
+		#endif
+
+		#if defined ENABLE_NORMALMAP
+		{
+			MEDIUMP vec3 viewBinormal;
+			viewBinormal = (_modelViewInverseTransposeMatrix * vec4(localBinormal, 0.0)).xyz;
+			viewBinormal = normalize(viewBinormal);
+
+			MEDIUMP vec3 t = cross(viewBinormal, viewNormal);
+			MEDIUMP vec3 b = cross(viewNormal, t);
+			MEDIUMP mat3 tbn = mat3(t, b, viewNormal);
+
+			#if defined ENABLE_LIGHTING_UNIT0
+			{
+				if (0 < _lightCount)
+				{
+					#if defined ENABLE_DIFFUSELIGHTING
+					{
+						vLightDirection[0] = vLightDirection[0] * tbn;
+					}
+					#endif
+
+					#if defined ENABLE_SPECULARING
+					{
+						vHalfVector[0] = vHalfVector[0] * tbn;
+					}
+					#endif
+				}
+			}
+			#endif
+
+			#if defined ENABLE_LIGHTING_UNIT1
+			{
+				if (1 < _lightCount)
+				{
+					#if defined ENABLE_DIFFUSELIGHTING
+					{
+						vLightDirection[1] = vLightDirection[1] * tbn;
+					}
+					#endif
+
+					#if defined ENABLE_SPECULARING
+					{
+						vHalfVector[1] = vHalfVector[1] * tbn;
+					}
+					#endif
+				}
+			}
+			#endif
+
+			#if defined ENABLE_RIMLIGHTING
+			{
+				vCameraVector = vCameraVector * tbn;
+			}
+			#endif
+
+			#if defined ENABLE_SKYLIGHTING
+			{
+				vTangentUpVector = unitVector * tbn;
+			}
+			#endif
+		}
+		#else
+		{
+			vNormal = viewNormal;
+		}
+		#endif
+	}
+	#endif
+
+	#if defined ENABLE_DIFFUSELIGHTING || defined ENABLE_SPECULARING || defined ENABLE_RIMLIGHTING || defined ENABLE_FOG || defined ENABLE_MRT_COLOR_DEPTH
+	{
+		vPosition = viewPosition;
+	}
+	#endif
+
+	#if defined ENABLE_LIGHTMAP
+	{
+		vTexCoord.zw = (_textureMatrix1 * vec4(_texcoord1, 0.0, 1.0)).xy;
+	}
+	#endif
+
+	#if defined ENABLE_SHADOWMAP
+	{
+		vShadowProjCoord = _shadowLightProjectionMatrix * _modelWorldMatrix * vec4(localPosition, 1.0);
+	}
+	#endif
+
+	vTexCoord.xy = (_textureMatrix0 * vec4(_texcoord0, 0.0, 1.0)).xy;
+	gl_Position = _modelViewProjectionMatrix * vec4(localPosition, 1.0);
+}
+]]>
+</Source>
+</Shader>

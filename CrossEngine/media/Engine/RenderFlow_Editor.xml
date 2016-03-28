@@ -1,0 +1,153 @@
+<RenderFlow>
+	<Solution name="UI">
+		<RenderStage name="ui_stage0" type="UI" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="100"/>
+			<Solution name="Low"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+	</Solution>
+
+	<Solution name="Low">
+		<RenderStage name="scene_stage0" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="100"/>
+			<Solution name="Low"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_stage1" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<BeginRenderID id="500"/>
+			<EndRenderID id="500"/>
+			<Solution name="Low"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="editor" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<BeginRenderID id="1000"/>
+			<EndRenderID id="1000"/>
+			<Solution name="Low"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+	</Solution>
+
+	<Solution name="Medium">
+		<RenderStage name="scene_stage0" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="100"/>
+			<Solution name="Medium"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_stage1" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<BeginRenderID id="500"/>
+			<EndRenderID id="500"/>
+			<Solution name="Medium"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="editor" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<BeginRenderID id="1000"/>
+			<EndRenderID id="1000"/>
+			<Solution name="Medium"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+	</Solution>
+
+	<Solution name="High">
+		<RenderStage name="scene_stage0" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="100"/>
+			<Solution name="High"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_stage1" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<BeginRenderID id="500"/>
+			<EndRenderID id="500"/>
+			<Solution name="High"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="editor" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<BeginRenderID id="1000"/>
+			<EndRenderID id="1000"/>
+			<Solution name="High"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+	</Solution>
+
+	<Solution name="Ultra">
+		<RenderStage name="scene_stage0" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="100"/>
+			<Solution name="High"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_stage1" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<BeginRenderID id="500"/>
+			<EndRenderID id="500"/>
+			<Solution name="Ultra"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="editor" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<BeginRenderID id="1000"/>
+			<EndRenderID id="1000"/>
+			<Solution name="Ultra"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+	</Solution>
+
+	<Solution name="Drawing">
+		<RenderStage name="scene_stage0" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="100"/>
+			<Solution name="Drawing"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+	</Solution>
+
+	<Solution name="Depth">
+		<RenderStage name="scene_stage0" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="100"/>
+			<Solution name="Depth"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+	</Solution>
+
+	<Solution name="LightMap">
+		<RenderStage name="scene_stage0" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+			<BeginRenderID id="200"/>
+			<EndRenderID id="200"/>
+			<Solution name="LightMap"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+	</Solution>
+</RenderFlow>

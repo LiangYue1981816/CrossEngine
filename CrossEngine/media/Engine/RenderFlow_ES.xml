@@ -1,0 +1,186 @@
+<RenderFlow>
+  <RenderTarget category="RT100" viewport="GL_TRUE" width="1.0" height="1.0">
+    <TextureTarget name="RT_FINAL" internalformat="GL_RGB" format="GL_RGB" type="GL_UNSIGNED_BYTE"/>
+    <TextureTarget name="RT_DIFFUSE" internalformat="GL_RGB" format="GL_RGB" type="GL_UNSIGNED_BYTE"/>
+    <TextureTarget name="RT_LIGHTING" internalformat="GL_RGB" format="GL_RGB" type="GL_UNSIGNED_BYTE"/>
+    <TextureTarget name="RT_NORMAL" internalformat="GL_RGB" format="GL_RGB" type="GL_UNSIGNED_BYTE"/>
+    <TextureTarget name="RT_DEPTH" internalformat="GL_RGBA" format="GL_RGBA" type="GL_UNSIGNED_BYTE"/>
+  </RenderTarget>
+  
+  <RenderTarget category="DEPTH" viewport="GL_FALSE" width="1024" height="1024">
+    <TextureTarget name="RT_SHADOWMAP" internalformat="GL_RGBA" format="GL_RGBA" type="GL_UNSIGNED_BYTE"/>
+  </RenderTarget>
+  
+  <!---->
+  <RenderSolution name="Low">
+    <RenderStage name="Mesh" type="SCENE" enable="GL_TRUE">
+      <ClearColorBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+      <ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+      <BeginRenderID id="1000"/>
+      <EndRenderID id="2000"/>
+      <Solution name="Low"/>
+      <PassGroup name="FrameBuffer"/>
+    </RenderStage>
+    <RenderStage name="Effect" type="SCENE" enable="GL_TRUE">
+      <ClearColorBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+      <ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+      <BeginRenderID id="2000"/>
+      <EndRenderID id="3000"/>
+      <Solution name="Low"/>
+      <PassGroup name="FrameBuffer"/>
+    </RenderStage>
+  </RenderSolution>
+
+  <RenderSolution name="Medium">
+    <RenderStage name="Mesh" type="SCENE" enable="GL_TRUE">
+      <ClearColorBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+      <ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+      <BeginRenderID id="1000"/>
+      <EndRenderID id="2000"/>
+      <Solution name="Medium"/>
+      <PassGroup name="FrameBuffer"/>
+    </RenderStage>
+    <RenderStage name="Effect" type="SCENE" enable="GL_TRUE">
+      <ClearColorBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+      <ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+      <BeginRenderID id="2000"/>
+      <EndRenderID id="3000"/>
+      <Solution name="Medium"/>
+      <PassGroup name="FrameBuffer"/>
+    </RenderStage>
+  </RenderSolution>
+
+  <RenderSolution name="High">
+    <RenderStage name="Mesh" type="SCENE" enable="GL_TRUE">
+      <ClearColorBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+      <ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+      <BeginRenderID id="1000"/>
+      <EndRenderID id="2000"/>
+      <Solution name="High"/>
+      <PassGroup name="FrameBuffer"/>
+    </RenderStage>
+    <RenderStage name="Effect" type="SCENE" enable="GL_TRUE">
+      <ClearColorBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+      <ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+      <BeginRenderID id="2000"/>
+      <EndRenderID id="3000"/>
+      <Solution name="High"/>
+      <PassGroup name="FrameBuffer"/>
+    </RenderStage>
+  </RenderSolution>
+
+  <RenderSolution name="Ultra">
+    <RenderStage name="Mesh" type="SCENE" enable="GL_TRUE">
+      <ClearColorBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+      <ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+      <BeginRenderID id="1000"/>
+      <EndRenderID id="2000"/>
+      <Solution name="Ultra"/>
+      <PassGroup name="FrameBuffer"/>
+      <Output category="RT100" name="RT_FINAL" channel="0" attachment="Color"/>
+    </RenderStage>
+    <RenderStage name="CastShadow" type="SHADOW_CAST" enable="GL_TRUE">
+      <ClearColorBuffer enable="GL_TRUE" value="0.0 0.0 0.0"/>
+      <ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+      <BeginRenderID id="1000"/>
+      <EndRenderID id="2000"/>
+      <Solution name="CastShadow"/>
+      <PassGroup name="FrameBuffer"/>
+      <Output category="DEPTH" name="RT_SHADOWMAP" channel="0" attachment="Color"/>
+    </RenderStage>
+    <RenderStage name="ReceiveShadow" type="SHADOW_RECEIVE" enable="GL_TRUE">
+      <ClearColorBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+      <ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+      <BeginRenderID id="1000"/>
+      <EndRenderID id="2000"/>
+      <Solution name="ReceiveShadow"/>
+      <PassGroup name="FrameBuffer"/>
+      <Input category="DEPTH" name="RT_SHADOWMAP" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wrapu="GL_CLAMP_TO_EDGE" wrapv="GL_CLAMP_TO_EDGE"/>
+      <Output category="RT100" name="RT_FINAL" channel="0" attachment="Color"/>
+    </RenderStage>
+    <RenderStage name="Effect" type="SCENE" enable="GL_TRUE">
+      <ClearColorBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+      <ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+      <BeginRenderID id="2000"/>
+      <EndRenderID id="3000"/>
+      <Solution name="Ultra"/>
+      <PassGroup name="FrameBuffer"/>
+      <Output category="RT100" name="RT_FINAL" channel="0" attachment="Color"/>
+    </RenderStage>
+    <RenderStage name="Final" type="SCREEN" enable="GL_TRUE">
+      <ClearColorBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+      <ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+      <ShaderVertex name="DiffuseSimple.Vertex.shader"/>
+      <ShaderFragment name="DiffuseSimple.Fragment.shader"/>
+      <Input category="RT100" name="RT_FINAL" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wrapu="GL_CLAMP_TO_EDGE" wrapv="GL_CLAMP_TO_EDGE"/>
+    </RenderStage>
+  </RenderSolution>
+
+  <RenderSolution name="UltraDeferredLighting">
+    <RenderStage name="MeshMRT" type="SCENE" enable="GL_TRUE">
+      <ClearColorBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+      <ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+      <BeginRenderID id="1000"/>
+      <EndRenderID id="2000"/>
+      <Solution name="UltraMRT"/>
+      <PassGroup name="FrameBuffer"/>
+      <Output category="RT100" name="RT_DIFFUSE" channel="0" attachment="Color"/>
+      <Output category="RT100" name="RT_LIGHTING" channel="1" attachment="Color"/>
+      <Output category="RT100" name="RT_NORMAL" channel="2" attachment="Color"/>
+      <Output category="RT100" name="RT_DEPTH" channel="3" attachment="Color"/>
+    </RenderStage>
+    <RenderStage name="DeferredLighting" type="LIGHT" enable="GL_TRUE">
+      <ClearColorBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+      <ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+      <BeginRenderID id="1000"/>
+      <EndRenderID id="2000"/>
+      <Solution name="DeferredLighting"/>
+      <PassGroup name="FrameBuffer"/>
+      <Input category="RT100" name="RT_NORMAL" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wrapu="GL_CLAMP_TO_EDGE" wrapv="GL_CLAMP_TO_EDGE"/>
+      <Input category="RT100" name="RT_DEPTH" channel="1" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wrapu="GL_CLAMP_TO_EDGE" wrapv="GL_CLAMP_TO_EDGE"/>
+      <Output category="RT100" name="RT_LIGHTING" channel="0" attachment="Color"/>
+    </RenderStage>
+    <RenderStage name="CastShadow" type="SHADOW_CAST" enable="GL_TRUE">
+      <ClearColorBuffer enable="GL_TRUE" value="0.0 0.0 0.0"/>
+      <ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+      <BeginRenderID id="1000"/>
+      <EndRenderID id="2000"/>
+      <Solution name="CastShadow"/>
+      <PassGroup name="FrameBuffer"/>
+      <Output category="DEPTH" name="RT_SHADOWMAP" channel="0" attachment="Color"/>
+    </RenderStage>
+    <RenderStage name="ReceiveShadow" type="SHADOW_RECEIVE" enable="GL_TRUE">
+      <ClearColorBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+      <ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+      <BeginRenderID id="1000"/>
+      <EndRenderID id="2000"/>
+      <Solution name="ReceiveShadow"/>
+      <PassGroup name="FrameBuffer"/>
+      <Input category="DEPTH" name="RT_SHADOWMAP" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wrapu="GL_CLAMP_TO_EDGE" wrapv="GL_CLAMP_TO_EDGE"/>
+      <Output category="RT100" name="RT_LIGHTING" channel="0" attachment="Color"/>
+    </RenderStage>
+    <RenderStage name="DiffuseBlendLighting" type="SCREEN" enable="GL_TRUE">
+      <ClearColorBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+      <ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+      <Input category="RT100" name="RT_DIFFUSE" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wrapu="GL_CLAMP_TO_EDGE" wrapv="GL_CLAMP_TO_EDGE"/>
+      <Input category="RT100" name="RT_LIGHTING" channel="1" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wrapu="GL_CLAMP_TO_EDGE" wrapv="GL_CLAMP_TO_EDGE"/>
+      <Output category="RT100" name="RT_DIFFUSE" channel="0" attachment="Color"/>
+    </RenderStage>
+    <RenderStage name="Effect" type="SCENE" enable="GL_TRUE">
+      <ClearColorBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+      <ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+      <BeginRenderID id="2000"/>
+      <EndRenderID id="3000"/>
+      <Solution name="Ultra"/>
+      <PassGroup name="FrameBuffer"/>
+      <Output category="RT100" name="RT_DIFFUSE" channel="0" attachment="Color"/>
+    </RenderStage>
+    <RenderStage name="Final" type="SCREEN" enable="GL_TRUE">
+      <ClearColorBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+      <ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+      <ShaderVertex name="DiffuseSimple.Vertex.shader"/>
+      <ShaderFragment name="DiffuseSimple.Fragment.shader"/>
+      <Input category="RT100" name="RT_DIFFUSE" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wrapu="GL_CLAMP_TO_EDGE" wrapv="GL_CLAMP_TO_EDGE"/>
+    </RenderStage>
+  </RenderSolution>
+</RenderFlow>

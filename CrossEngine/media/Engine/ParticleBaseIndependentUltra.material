@@ -1,0 +1,15 @@
+<Material>
+	<Solution name="Ultra">
+		<PassGroup name="FrameBuffer">
+			<Pass>
+				<RenderID id="500" />
+				<CullFaceEnable enable="GL_FALSE" />
+				<DepthWriteEnable enable="GL_FALSE" />
+				<BlendEnable enable="GL_TRUE" />
+				<BlendFunc sfactor="GL_SRC_ALPHA" dfactor="GL_DST_ALPHA" />
+				<ShaderVertex name="Particle.Vertex.shader" />
+				<ShaderFragment name="Particle.Fragment.shader" />
+			</Pass>
+		</PassGroup>
+	</Solution>
+</Material>

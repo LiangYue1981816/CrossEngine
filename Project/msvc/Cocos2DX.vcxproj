@@ -1,0 +1,582 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{89EBA930-AB37-486F-9919-8E11D96E9488}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Cocos2DX</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\..\Bin\$(Configuration)$(Platform)\</OutDir>
+    <IntDir>Cocos2DX.$(Configuration)$(Platform)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\..\Bin\$(Configuration)$(Platform)\</OutDir>
+    <IntDir>Cocos2DX.$(Configuration)$(Platform)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\Bin\$(Configuration)$(Platform)\</OutDir>
+    <IntDir>Cocos2DX.$(Configuration)$(Platform)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\Bin\$(Configuration)$(Platform)\</OutDir>
+    <IntDir>Cocos2DX.$(Configuration)$(Platform)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEV_;_PLATFORM_WINDOWS_;WIN32;_DEBUG;_WINDOWS;_USRDLL;COCOS2DX_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../Dependencies;../../Dependencies/zlib;../../Dependencies/zzip;../../Dependencies/png;../../Dependencies/jpeg;../../Dependencies/json;../../Dependencies/pthread-win32;../../Cocos2DX;../../Cocos2DX/include;../../Cocos2DX/src;../../Cocos2DX/src/support;../../Cocos2DX/src/platform;../../Cocos2DX/src/platform/third_party/win32;../../Cocos2DX/src/platform/third_party/win32/iconv;../../Cocos2DX/src/platform/third_party/win32/libxml2;../../FMod/include;../../PhysX/PhysX-PC/Include;../../PhysX/PhysX-PC/Include/characterkinematic;../../PhysX/PhysX-PC/Include/cloth;../../PhysX/PhysX-PC/Include/common;../../PhysX/PhysX-PC/Include/cooking;../../PhysX/PhysX-PC/Include/extensions;../../PhysX/PhysX-PC/Include/foundation;../../PhysX/PhysX-PC/Include/geometry;../../PhysX/PhysX-PC/Include/gpu;../../PhysX/PhysX-PC/Include/particles;../../PhysX/PhysX-PC/Include/physxprofilesdk;../../PhysX/PhysX-PC/Include/physxvisualdebuggersdk;../../PhysX/PhysX-PC/Include/pvd;../../PhysX/PhysX-PC/Include/pxtask;../../PhysX/PhysX-PC/Include/RepX;../../PhysX/PhysX-PC/Include/RepXUpgrader;../../PhysX/PhysX-PC/Include/vehicle;../../PhysX/PhysX-PC/Source/foundation/include;../../CrossEngine/include;../../CrossEngine/include/PxToolkit</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4273;4251;4996;4355;4244</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(OutDir);../../Dependencies/pthread-win32/x86</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CrossEngine.lib;ws2_32.lib;wldap32.lib;pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEV_;_PLATFORM_WINDOWS_;WIN32;_DEBUG;_WINDOWS;_USRDLL;COCOS2DX_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../Dependencies;../../Dependencies/zlib;../../Dependencies/zzip;../../Dependencies/png;../../Dependencies/jpeg;../../Dependencies/json;../../Dependencies/pthread-win32;../../Cocos2DX;../../Cocos2DX/include;../../Cocos2DX/src;../../Cocos2DX/src/support;../../Cocos2DX/src/platform;../../Cocos2DX/src/platform/third_party/win32;../../Cocos2DX/src/platform/third_party/win32/iconv;../../Cocos2DX/src/platform/third_party/win32/libxml2;../../FMod/include;../../PhysX/PhysX-PC/Include;../../PhysX/PhysX-PC/Include/characterkinematic;../../PhysX/PhysX-PC/Include/cloth;../../PhysX/PhysX-PC/Include/common;../../PhysX/PhysX-PC/Include/cooking;../../PhysX/PhysX-PC/Include/extensions;../../PhysX/PhysX-PC/Include/foundation;../../PhysX/PhysX-PC/Include/geometry;../../PhysX/PhysX-PC/Include/gpu;../../PhysX/PhysX-PC/Include/particles;../../PhysX/PhysX-PC/Include/physxprofilesdk;../../PhysX/PhysX-PC/Include/physxvisualdebuggersdk;../../PhysX/PhysX-PC/Include/pvd;../../PhysX/PhysX-PC/Include/pxtask;../../PhysX/PhysX-PC/Include/RepX;../../PhysX/PhysX-PC/Include/RepXUpgrader;../../PhysX/PhysX-PC/Include/vehicle;../../PhysX/PhysX-PC/Source/foundation/include;../../CrossEngine/include;../../CrossEngine/include/PxToolkit</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4273;4251;4996;4355;4244</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(OutDir);../../Dependencies/pthread-win32/x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CrossEngine.lib;ws2_32.lib;wldap32.lib;pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_DEV_;_PLATFORM_WINDOWS_;WIN32;NDEBUG;_WINDOWS;_USRDLL;COCOS2DX_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../Dependencies;../../Dependencies/zlib;../../Dependencies/zzip;../../Dependencies/png;../../Dependencies/jpeg;../../Dependencies/json;../../Dependencies/pthread-win32;../../Cocos2DX;../../Cocos2DX/include;../../Cocos2DX/src;../../Cocos2DX/src/support;../../Cocos2DX/src/platform;../../Cocos2DX/src/platform/third_party/win32;../../Cocos2DX/src/platform/third_party/win32/iconv;../../Cocos2DX/src/platform/third_party/win32/libxml2;../../FMod/include;../../PhysX/PhysX-PC/Include;../../PhysX/PhysX-PC/Include/characterkinematic;../../PhysX/PhysX-PC/Include/cloth;../../PhysX/PhysX-PC/Include/common;../../PhysX/PhysX-PC/Include/cooking;../../PhysX/PhysX-PC/Include/extensions;../../PhysX/PhysX-PC/Include/foundation;../../PhysX/PhysX-PC/Include/geometry;../../PhysX/PhysX-PC/Include/gpu;../../PhysX/PhysX-PC/Include/particles;../../PhysX/PhysX-PC/Include/physxprofilesdk;../../PhysX/PhysX-PC/Include/physxvisualdebuggersdk;../../PhysX/PhysX-PC/Include/pvd;../../PhysX/PhysX-PC/Include/pxtask;../../PhysX/PhysX-PC/Include/RepX;../../PhysX/PhysX-PC/Include/RepXUpgrader;../../PhysX/PhysX-PC/Include/vehicle;../../PhysX/PhysX-PC/Source/foundation/include;../../CrossEngine/include;../../CrossEngine/include/PxToolkit</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4273;4251;4996;4355;4244</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(OutDir);../../Dependencies/pthread-win32/x86</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CrossEngine.lib;ws2_32.lib;wldap32.lib;pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_DEV_;_PLATFORM_WINDOWS_;WIN32;NDEBUG;_WINDOWS;_USRDLL;COCOS2DX_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../Dependencies;../../Dependencies/zlib;../../Dependencies/zzip;../../Dependencies/png;../../Dependencies/jpeg;../../Dependencies/json;../../Dependencies/pthread-win32;../../Cocos2DX;../../Cocos2DX/include;../../Cocos2DX/src;../../Cocos2DX/src/support;../../Cocos2DX/src/platform;../../Cocos2DX/src/platform/third_party/win32;../../Cocos2DX/src/platform/third_party/win32/iconv;../../Cocos2DX/src/platform/third_party/win32/libxml2;../../FMod/include;../../PhysX/PhysX-PC/Include;../../PhysX/PhysX-PC/Include/characterkinematic;../../PhysX/PhysX-PC/Include/cloth;../../PhysX/PhysX-PC/Include/common;../../PhysX/PhysX-PC/Include/cooking;../../PhysX/PhysX-PC/Include/extensions;../../PhysX/PhysX-PC/Include/foundation;../../PhysX/PhysX-PC/Include/geometry;../../PhysX/PhysX-PC/Include/gpu;../../PhysX/PhysX-PC/Include/particles;../../PhysX/PhysX-PC/Include/physxprofilesdk;../../PhysX/PhysX-PC/Include/physxvisualdebuggersdk;../../PhysX/PhysX-PC/Include/pvd;../../PhysX/PhysX-PC/Include/pxtask;../../PhysX/PhysX-PC/Include/RepX;../../PhysX/PhysX-PC/Include/RepXUpgrader;../../PhysX/PhysX-PC/Include/vehicle;../../PhysX/PhysX-PC/Source/foundation/include;../../CrossEngine/include;../../CrossEngine/include/PxToolkit</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4273;4251;4996;4355;4244</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(OutDir);../../Dependencies/pthread-win32/x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CrossEngine.lib;ws2_32.lib;wldap32.lib;pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Cocos2DX\include\CCAction.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionCamera.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionEase.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionGrid.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionGrid3D.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionInstant.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionInterval.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionManager.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionPageTurn3D.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionProgressTimer.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionTiledGrid.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCActionTween.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCAffineTransform.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCAnimation.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCAnimationCache.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCArray.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCAtlasNode.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCAutoreleasePool.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCCamera.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\ccConfig.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCConfiguration.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCData.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCDirector.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCDrawingPrimitives.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCGeometry.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCGL.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCGrabber.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCGrid.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCIMEDelegate.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCIMEDispatcher.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCKeypadDelegate.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCKeypadDispatcher.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCLabelAtlas.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCLabelBMFont.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCLabelTTF.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCLayer.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\ccMacros.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCMenu.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCMenuItem.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCMotionStreak.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCMutableArray.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCMutableDictionary.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCNode.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCNotificationCenter.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCNS.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCObject.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCParallaxNode.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCParticleExamples.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCParticleSystem.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCParticleSystemPoint.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCParticleSystemQuad.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCPointExtension.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCProgressTimer.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCProtocols.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCRenderTexture.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCRibbon.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCScene.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCScheduler.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCScriptSupport.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCScrollView.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCSet.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCSprite.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCSpriteAnimation.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCSpriteBatchNode.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCSpriteFrame.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCSpriteFrameCache.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCSpriteUrl.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCString.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCTextFieldTTF.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCTexture2D.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCTextureAtlas.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCTextureCache.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCTexturePVR.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCTileMapAtlas.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCTMXLayer.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCTMXObjectGroup.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCTMXTiledMap.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCTMXXMLParser.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCTouch.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCTouchDelegateProtocol.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCTouchDispatcher.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCTouchHandler.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCTransition.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCTransitionPageTurn.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCTransitionRadial.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\ccTypes.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCUserDefault.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\ccUtils.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\CCZone.h" />
+    <ClInclude Include="..\..\Cocos2DX\include\cocos2d.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCArchOptimalParticleSystem.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCCommon.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCFileUtils.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCGL.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCImage.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCLibxml2.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCPlatform.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCPlatformConfig.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCPlatformMacros.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCSAXParser.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCStdC.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\platform\CCThread.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\support\ccBase64.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\support\CCProfiling.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\support\data_support\ccCArray.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\support\data_support\uthash.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\support\data_support\utlist.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\support\image_support\TGAlib.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\support\TransformUtils.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\support\zip_support\ioapi.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\support\zip_support\unzip.h" />
+    <ClInclude Include="..\..\Cocos2DX\src\support\zip_support\ZipUtils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Cocos2DX\src\CCAction.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionCamera.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionEase.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionGrid.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionGrid3D.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionInstant.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionInterval.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionManager.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionPageTurn3D.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionProgressTimer.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionTiledGrid.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCActionTween.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCAffineTransform.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCAnimation.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCAnimationCache.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCAtlasNode.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCAutoreleasePool.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCCamera.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCConfiguration.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCData.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCDirector.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCDrawingPrimitives.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCGeometry.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCGrabber.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCGrid.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCIMEDispatcher.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCKeypadDelegate.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCKeypadDispatcher.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCLabelAtlas.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCLabelBMFont.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCLabelTTF.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCLayer.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCMenu.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCMenuItem.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCMotionStreak.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCNode.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCNotificationCenter.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCNS.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCObject.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCParallaxNode.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCParticleExamples.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCParticleSystem.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCParticleSystemPoint.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCParticleSystemQuad.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCProgressTimer.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCRenderTexture.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCRibbon.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCScene.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCScheduler.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCScriptSupport.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCScrollView.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCSet.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCSprite.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCSpriteAnimation.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCSpriteBatchNode.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCSpriteFrame.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCSpriteFrameCache.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCSpriteUrl.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCTextFieldTTF.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCTexture2D.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCTextureAtlas.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCTextureCache.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCTexturePVR.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCTileMapAtlas.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCTMXLayer.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCTMXObjectGroup.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCTMXTiledMap.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCTMXXMLParser.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCTouchDispatcher.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCTouchHandler.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCTransition.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCTransitionPageTurn.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCTransitionRadial.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\ccUtils.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\CCZone.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\cocos2d.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\platform\CCCommon.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\platform\CCFileUtils.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\platform\CCGL.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\platform\CCImage.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\platform\CCPlatform.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\platform\CCSAXParser.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\platform\CCStdC.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\platform\CCThread.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\platform\win32\CCImage_win32.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\support\CCArray.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\support\ccBase64.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\support\CCPointExtension.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\support\CCProfiling.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\support\CCUserDefault.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\support\image_support\TGAlib.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\support\TransformUtils.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\support\zip_support\ioapi.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\support\zip_support\unzip.cpp" />
+    <ClCompile Include="..\..\Cocos2DX\src\support\zip_support\ZipUtils.cpp" />
+    <ClCompile Include="..\..\Dependencies\curl\amigaos.c" />
+    <ClCompile Include="..\..\Dependencies\curl\asyn-ares.c" />
+    <ClCompile Include="..\..\Dependencies\curl\asyn-thread.c" />
+    <ClCompile Include="..\..\Dependencies\curl\axtls.c" />
+    <ClCompile Include="..\..\Dependencies\curl\base64.c" />
+    <ClCompile Include="..\..\Dependencies\curl\connect.c" />
+    <ClCompile Include="..\..\Dependencies\curl\content_encoding.c" />
+    <ClCompile Include="..\..\Dependencies\curl\cookie.c" />
+    <ClCompile Include="..\..\Dependencies\curl\curl_addrinfo.c" />
+    <ClCompile Include="..\..\Dependencies\curl\curl_darwinssl.c" />
+    <ClCompile Include="..\..\Dependencies\curl\curl_fnmatch.c" />
+    <ClCompile Include="..\..\Dependencies\curl\curl_gethostname.c" />
+    <ClCompile Include="..\..\Dependencies\curl\curl_gssapi.c" />
+    <ClCompile Include="..\..\Dependencies\curl\curl_memrchr.c" />
+    <ClCompile Include="..\..\Dependencies\curl\curl_multibyte.c" />
+    <ClCompile Include="..\..\Dependencies\curl\curl_ntlm.c" />
+    <ClCompile Include="..\..\Dependencies\curl\curl_ntlm_core.c" />
+    <ClCompile Include="..\..\Dependencies\curl\curl_ntlm_msgs.c" />
+    <ClCompile Include="..\..\Dependencies\curl\curl_ntlm_wb.c" />
+    <ClCompile Include="..\..\Dependencies\curl\curl_rand.c" />
+    <ClCompile Include="..\..\Dependencies\curl\curl_rtmp.c" />
+    <ClCompile Include="..\..\Dependencies\curl\curl_sasl.c" />
+    <ClCompile Include="..\..\Dependencies\curl\curl_schannel.c" />
+    <ClCompile Include="..\..\Dependencies\curl\curl_sspi.c" />
+    <ClCompile Include="..\..\Dependencies\curl\curl_threads.c" />
+    <ClCompile Include="..\..\Dependencies\curl\cyassl.c" />
+    <ClCompile Include="..\..\Dependencies\curl\dict.c" />
+    <ClCompile Include="..\..\Dependencies\curl\easy.c" />
+    <ClCompile Include="..\..\Dependencies\curl\escape.c" />
+    <ClCompile Include="..\..\Dependencies\curl\file.c" />
+    <ClCompile Include="..\..\Dependencies\curl\fileinfo.c" />
+    <ClCompile Include="..\..\Dependencies\curl\formdata.c" />
+    <ClCompile Include="..\..\Dependencies\curl\ftp.c" />
+    <ClCompile Include="..\..\Dependencies\curl\ftplistparser.c" />
+    <ClCompile Include="..\..\Dependencies\curl\getenv.c" />
+    <ClCompile Include="..\..\Dependencies\curl\getinfo.c" />
+    <ClCompile Include="..\..\Dependencies\curl\gopher.c" />
+    <ClCompile Include="..\..\Dependencies\curl\gtls.c" />
+    <ClCompile Include="..\..\Dependencies\curl\hash.c" />
+    <ClCompile Include="..\..\Dependencies\curl\hmac.c" />
+    <ClCompile Include="..\..\Dependencies\curl\hostasyn.c" />
+    <ClCompile Include="..\..\Dependencies\curl\hostcheck.c" />
+    <ClCompile Include="..\..\Dependencies\curl\hostip.c" />
+    <ClCompile Include="..\..\Dependencies\curl\hostip4.c" />
+    <ClCompile Include="..\..\Dependencies\curl\hostip6.c" />
+    <ClCompile Include="..\..\Dependencies\curl\hostsyn.c" />
+    <ClCompile Include="..\..\Dependencies\curl\http.c" />
+    <ClCompile Include="..\..\Dependencies\curl\http_chunks.c" />
+    <ClCompile Include="..\..\Dependencies\curl\http_digest.c" />
+    <ClCompile Include="..\..\Dependencies\curl\http_negotiate.c" />
+    <ClCompile Include="..\..\Dependencies\curl\http_negotiate_sspi.c" />
+    <ClCompile Include="..\..\Dependencies\curl\http_proxy.c" />
+    <ClCompile Include="..\..\Dependencies\curl\idn_win32.c" />
+    <ClCompile Include="..\..\Dependencies\curl\if2ip.c" />
+    <ClCompile Include="..\..\Dependencies\curl\imap.c" />
+    <ClCompile Include="..\..\Dependencies\curl\inet_ntop.c" />
+    <ClCompile Include="..\..\Dependencies\curl\inet_pton.c" />
+    <ClCompile Include="..\..\Dependencies\curl\krb4.c" />
+    <ClCompile Include="..\..\Dependencies\curl\krb5.c" />
+    <ClCompile Include="..\..\Dependencies\curl\ldap.c" />
+    <ClCompile Include="..\..\Dependencies\curl\llist.c" />
+    <ClCompile Include="..\..\Dependencies\curl\md4.c" />
+    <ClCompile Include="..\..\Dependencies\curl\md5.c" />
+    <ClCompile Include="..\..\Dependencies\curl\memdebug.c" />
+    <ClCompile Include="..\..\Dependencies\curl\mprintf.c" />
+    <ClCompile Include="..\..\Dependencies\curl\multi.c" />
+    <ClCompile Include="..\..\Dependencies\curl\netrc.c" />
+    <ClCompile Include="..\..\Dependencies\curl\non-ascii.c" />
+    <ClCompile Include="..\..\Dependencies\curl\nonblock.c" />
+    <ClCompile Include="..\..\Dependencies\curl\nss.c" />
+    <ClCompile Include="..\..\Dependencies\curl\nwlib.c" />
+    <ClCompile Include="..\..\Dependencies\curl\nwos.c" />
+    <ClCompile Include="..\..\Dependencies\curl\openldap.c" />
+    <ClCompile Include="..\..\Dependencies\curl\parsedate.c" />
+    <ClCompile Include="..\..\Dependencies\curl\pingpong.c" />
+    <ClCompile Include="..\..\Dependencies\curl\polarssl.c" />
+    <ClCompile Include="..\..\Dependencies\curl\pop3.c" />
+    <ClCompile Include="..\..\Dependencies\curl\progress.c" />
+    <ClCompile Include="..\..\Dependencies\curl\qssl.c" />
+    <ClCompile Include="..\..\Dependencies\curl\rawstr.c" />
+    <ClCompile Include="..\..\Dependencies\curl\rtsp.c" />
+    <ClCompile Include="..\..\Dependencies\curl\security.c" />
+    <ClCompile Include="..\..\Dependencies\curl\select.c" />
+    <ClCompile Include="..\..\Dependencies\curl\sendf.c" />
+    <ClCompile Include="..\..\Dependencies\curl\share.c" />
+    <ClCompile Include="..\..\Dependencies\curl\slist.c" />
+    <ClCompile Include="..\..\Dependencies\curl\smtp.c" />
+    <ClCompile Include="..\..\Dependencies\curl\socks.c" />
+    <ClCompile Include="..\..\Dependencies\curl\socks_gssapi.c" />
+    <ClCompile Include="..\..\Dependencies\curl\socks_sspi.c" />
+    <ClCompile Include="..\..\Dependencies\curl\speedcheck.c" />
+    <ClCompile Include="..\..\Dependencies\curl\splay.c" />
+    <ClCompile Include="..\..\Dependencies\curl\ssh.c" />
+    <ClCompile Include="..\..\Dependencies\curl\sslgen.c" />
+    <ClCompile Include="..\..\Dependencies\curl\ssluse.c" />
+    <ClCompile Include="..\..\Dependencies\curl\strdup.c" />
+    <ClCompile Include="..\..\Dependencies\curl\strequal.c" />
+    <ClCompile Include="..\..\Dependencies\curl\strerror.c" />
+    <ClCompile Include="..\..\Dependencies\curl\strtok.c" />
+    <ClCompile Include="..\..\Dependencies\curl\strtoofft.c" />
+    <ClCompile Include="..\..\Dependencies\curl\telnet.c" />
+    <ClCompile Include="..\..\Dependencies\curl\tftp.c" />
+    <ClCompile Include="..\..\Dependencies\curl\timeval.c" />
+    <ClCompile Include="..\..\Dependencies\curl\transfer.c" />
+    <ClCompile Include="..\..\Dependencies\curl\url.c" />
+    <ClCompile Include="..\..\Dependencies\curl\version.c" />
+    <ClCompile Include="..\..\Dependencies\curl\warnless.c" />
+    <ClCompile Include="..\..\Dependencies\curl\wildcard.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jaricom.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jcapimin.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jcapistd.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jcarith.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jccoefct.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jccolor.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jcdctmgr.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jchuff.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jcinit.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jcmainct.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jcmarker.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jcmaster.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jcomapi.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jcparam.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jcprepct.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jcsample.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jctrans.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jdapimin.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jdapistd.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jdarith.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jdatadst.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jdatasrc.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jdcoefct.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jdcolor.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jddctmgr.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jdhuff.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jdinput.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jdmainct.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jdmarker.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jdmaster.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jdmerge.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jdpostct.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jdsample.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jdtrans.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jerror.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jfdctflt.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jfdctfst.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jfdctint.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jidctflt.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jidctfst.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jidctint.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jmemmgr.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jmemnobs.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jquant1.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jquant2.c" />
+    <ClCompile Include="..\..\Dependencies\jpeg\jutils.c" />
+    <ClCompile Include="..\..\Dependencies\json\json_arraylist.c" />
+    <ClCompile Include="..\..\Dependencies\json\json_debug.c" />
+    <ClCompile Include="..\..\Dependencies\json\json_linkhash.c" />
+    <ClCompile Include="..\..\Dependencies\json\json_object.c" />
+    <ClCompile Include="..\..\Dependencies\json\json_printbuf.c" />
+    <ClCompile Include="..\..\Dependencies\json\json_tokener.c" />
+    <ClCompile Include="..\..\Dependencies\json\json_util.c" />
+    <ClCompile Include="..\..\Dependencies\png\png.c" />
+    <ClCompile Include="..\..\Dependencies\png\pngerror.c" />
+    <ClCompile Include="..\..\Dependencies\png\pnggccrd.c" />
+    <ClCompile Include="..\..\Dependencies\png\pngget.c" />
+    <ClCompile Include="..\..\Dependencies\png\pngmem.c" />
+    <ClCompile Include="..\..\Dependencies\png\pngpread.c" />
+    <ClCompile Include="..\..\Dependencies\png\pngread.c" />
+    <ClCompile Include="..\..\Dependencies\png\pngrio.c" />
+    <ClCompile Include="..\..\Dependencies\png\pngrtran.c" />
+    <ClCompile Include="..\..\Dependencies\png\pngrutil.c" />
+    <ClCompile Include="..\..\Dependencies\png\pngset.c" />
+    <ClCompile Include="..\..\Dependencies\png\pngtrans.c" />
+    <ClCompile Include="..\..\Dependencies\png\pngvcrd.c" />
+    <ClCompile Include="..\..\Dependencies\png\pngwio.c" />
+    <ClCompile Include="..\..\Dependencies\png\pngwrite.c" />
+    <ClCompile Include="..\..\Dependencies\png\pngwtran.c" />
+    <ClCompile Include="..\..\Dependencies\png\pngwutil.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\adler32.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\compress.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\crc32.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\deflate.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\gzclose.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\gzlib.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\gzread.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\gzwrite.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\infback.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\inffast.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\inflate.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\inftrees.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\trees.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\uncompr.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\zutil.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,870 @@
+<RenderFlow>
+	<RenderTarget category="RT25" viewport="GL_TRUE" width="0.25" height="0.25">
+		<TextureTarget name="RT_RGB_0" internalformat="GL_RGB" format="GL_RGB" type="GL_UNSIGNED_BYTE"/>
+		<TextureTarget name="RT_RGB_1" internalformat="GL_RGB" format="GL_RGB" type="GL_UNSIGNED_BYTE"/>
+		<TextureTarget name="RT_RGB_2" internalformat="GL_RGB" format="GL_RGB" type="GL_UNSIGNED_BYTE"/>
+	</RenderTarget>
+
+	<RenderTarget category="RT100" viewport="GL_TRUE" width="1.0" height="1.0">
+		<TextureTarget name="RT_RGB_0" internalformat="GL_RGB" format="GL_RGB" type="GL_UNSIGNED_BYTE"/>
+		<TextureTarget name="RT_RGB_1" internalformat="GL_RGB" format="GL_RGB" type="GL_UNSIGNED_BYTE"/>
+
+		<TextureTarget name="RT_DEPTH" internalformat="GL_RGBA" format="GL_RGBA" type="GL_UNSIGNED_BYTE"/>
+		<TextureTarget name="RT_RGB_SOURCE" internalformat="GL_RGB" format="GL_RGB" type="GL_UNSIGNED_BYTE"/>
+		<TextureTarget name="RT_RGB_GODRAY" internalformat="GL_RGB" format="GL_RGB" type="GL_UNSIGNED_BYTE"/>
+		<TextureTarget name="RT_RGB_DISTORTION" internalformat="GL_RGB" format="GL_RGB" type="GL_UNSIGNED_BYTE"/>
+		<TextureTarget name="RT_RGB_MOTIONBLUR" internalformat="GL_RGB" format="GL_RGB" type="GL_UNSIGNED_BYTE"/>
+	</RenderTarget>
+
+	<RenderTarget category="DEPTH" viewport="GL_FALSE" width="4096" height="4096">
+		<TextureTarget name="RT_DEPTH" internalformat="GL_DEPTH_COMPONENT" format="GL_DEPTH_COMPONENT" type="GL_UNSIGNED_INT"/>
+	</RenderTarget>
+
+
+	<!-- GLES2 -->
+	<Solution name="UI">
+		<RenderStage name="ui_stage0" type="UI" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="100"/>
+			<Solution name="Low"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+	</Solution>
+
+	<!-- GLES2 -->
+	<Solution name="Low">
+		<RenderStage name="scene_mesh_stage0" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+			<Output category="RT100" name="RT_RGB_SOURCE" channel="0" attachment="Color"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="200"/>
+			<Solution name="Medium"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_effect_stage1" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<Output category="RT100" name="RT_RGB_SOURCE" channel="0" attachment="Color"/>
+			<BeginRenderID id="500"/>
+			<EndRenderID id="500"/>
+			<Solution name="Low"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+
+		<RenderStage name="final_stage" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="DiffuseSimple.Vertex.shader"/>
+			<ShaderFragment name="DiffuseSimple.Fragment.shader"/>
+			<Input category="RT100" name="RT_RGB_SOURCE" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+		</RenderStage>
+	</Solution>
+
+	<!-- GLES2 -->
+	<Solution name="Medium">
+		<RenderStage name="scene_mesh_stage0" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+			<Output category="RT100" name="RT_RGB_SOURCE" channel="0" attachment="Color"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="100"/>
+			<Solution name="Medium"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_mesh_stage1" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<Output category="RT100" name="RT_RGB_SOURCE" channel="0" attachment="Color"/>
+			<BeginRenderID id="200"/>
+			<EndRenderID id="200"/>
+			<Solution name="High"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_effect_stage2" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<Output category="RT100" name="RT_RGB_SOURCE" channel="0" attachment="Color"/>
+			<BeginRenderID id="500"/>
+			<EndRenderID id="500"/>
+			<Solution name="Medium"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+
+		<RenderStage name="final_stage" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="DiffuseSimple.Vertex.shader"/>
+			<ShaderFragment name="DiffuseSimple.Fragment.shader"/>
+			<Input category="RT100" name="RT_RGB_SOURCE" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+		</RenderStage>
+	</Solution>
+
+	<!-- GLES2 -->
+	<Solution name="High">
+		<RenderStage name="scene_mesh_stage0" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+			<Output category="RT100" name="RT_RGB_SOURCE" channel="0" attachment="Color"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="200"/>
+			<Solution name="High"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_effect_stage1" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<Output category="RT100" name="RT_RGB_SOURCE" channel="0" attachment="Color"/>
+			<BeginRenderID id="500"/>
+			<EndRenderID id="500"/>
+			<Solution name="High"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_distortion_mesh_stage0" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_TRUE" value="0.5 0.5 1.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<Output category="RT100" name="RT_RGB_DISTORTION" channel="0" attachment="Color"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="100"/>
+			<Solution name="Distortion"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_distortion_effect_stage1" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.5 0.5 1.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<Output category="RT100" name="RT_RGB_DISTORTION" channel="0" attachment="Color"/>
+			<BeginRenderID id="500"/>
+			<EndRenderID id="500"/>
+			<Solution name="Distortion"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+
+		<!-- Bloom -->
+		<RenderStage name="bloom_bright_stage0" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="BloomBright.Vertex.shader"/>
+			<ShaderFragment name="BloomBright.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="bloomBrightLuminance" scope="Global" value="0.08"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT100" name="RT_RGB_SOURCE" channel="0" minfilter="GL_LINEAR" magfilter="GL_LINEAR" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT25" name="RT_RGB_0" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="bloom_blur_h_stage1" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="BloomBlurH.Vertex.shader"/>
+			<ShaderFragment name="BloomBlurH.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="blurRange" scope="Local" value="0.005"/>
+					<Uniform1f name="bloomScale" scope="Local" value="1.50"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT25" name="RT_RGB_0" channel="0" minfilter="GL_LINEAR" magfilter="GL_LINEAR" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT25" name="RT_RGB_1" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="bloom_blur_v_stage2" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="BloomBlurV.Vertex.shader"/>
+			<ShaderFragment name="BloomBlurV.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="blurRange" scope="Local" value="0.005"/>
+					<Uniform1f name="bloomScale" scope="Local" value="1.50"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT25" name="RT_RGB_1" channel="0" minfilter="GL_LINEAR" magfilter="GL_LINEAR" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT25" name="RT_RGB_2" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="bloom_blend_stage3" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="ScreenBlendAdd.Vertex.shader"/>
+			<ShaderFragment name="ScreenBlendAdd.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="blendFactor1" scope="Local" value="1.0"/>
+					<Uniform1f name="blendFactor2" scope="Local" value="1.0"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT25" name="RT_RGB_2" channel="0" minfilter="GL_LINEAR" magfilter="GL_LINEAR" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Input category="RT100" name="RT_RGB_SOURCE" channel="1" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_0" channel="0" attachment="Color"/>
+		</RenderStage>
+
+		<!-- Bloom_Distortion -->
+		<RenderStage name="distortion_stage" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="Distortion.Vertex.shader"/>
+			<ShaderFragment name="Distortion.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="distortionRange" scope="Global" value="0.05"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT100" name="RT_RGB_0" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Input category="RT100" name="RT_RGB_DISTORTION" channel="1" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_SOURCE" channel="0" attachment="Color"/>
+		</RenderStage>
+
+		<!-- Bloom_Distortion_MotionBlur -->
+		<RenderStage name="motionblur_stage0" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="MotionBlur.Vertex.shader"/>
+			<ShaderFragment name="MotionBlur.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="motionBlurFactor" scope="Global" value="0.0"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT100" name="RT_RGB_SOURCE" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Input category="RT100" name="RT_RGB_MOTIONBLUR" channel="1" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_0" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="motionblur_backup_stage1" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="DiffuseSimple.Vertex.shader"/>
+			<ShaderFragment name="DiffuseSimple.Fragment.shader"/>
+			<Input category="RT100" name="RT_RGB_0" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_MOTIONBLUR" channel="0" attachment="Color"/>
+		</RenderStage>
+
+		<!-- Bloom_Distortion_MotionBlur_Color -->
+		<RenderStage name="color_stage" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="Color.Vertex.shader"/>
+			<ShaderFragment name="Color.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="colorGrayFactor" scope="Global" value="0.0"/>
+					<Uniform3f name="colorAdd" scope="Global" value="0.0 0.0 0.0"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT100" name="RT_RGB_0" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_1" channel="0" attachment="Color"/>
+		</RenderStage>
+
+		<!-- Bloom_Distortion_MotionBlur_Color_Final -->
+		<RenderStage name="final_stage" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="DiffuseSimple.Vertex.shader"/>
+			<ShaderFragment name="DiffuseSimple.Fragment.shader"/>
+			<Input category="RT100" name="RT_RGB_1" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+		</RenderStage>
+	</Solution>
+
+	<!-- GLES3 -->
+	<Solution name="Ultra">
+		<RenderStage name="scene_shadow_cast_stage0" type="SHADOW_CAST" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+			<Output category="DEPTH" name="RT_DEPTH" channel="0" attachment="Depth"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="100"/>
+			<Solution name="Depth"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_shadow_mesh_stage1" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+			<Input category="DEPTH" name="RT_DEPTH" channel="5" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_SOURCE" channel="0" attachment="Color"/>
+			<Output category="RT100" name="RT_DEPTH" channel="1" attachment="Color"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="200"/>
+			<Solution name="Ultra"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_shadow_effect_stage2" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<Output category="RT100" name="RT_RGB_SOURCE" channel="0" attachment="Color"/>
+			<BeginRenderID id="500"/>
+			<EndRenderID id="500"/>
+			<Solution name="Ultra"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_godray_mesh_stage0" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_TRUE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<Output category="RT100" name="RT_RGB_GODRAY" channel="0" attachment="Color"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="100"/>
+			<Solution name="GodRay"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_godray_effect_stage1" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<Output category="RT100" name="RT_RGB_GODRAY" channel="0" attachment="Color"/>
+			<BeginRenderID id="500"/>
+			<EndRenderID id="500"/>
+			<Solution name="GodRay"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_distortion_mesh_stage0" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_TRUE" value="0.5 0.5 1.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<Output category="RT100" name="RT_RGB_DISTORTION" channel="0" attachment="Color"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="100"/>
+			<Solution name="Distortion"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_distortion_effect_stage1" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.5 0.5 1.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<Output category="RT100" name="RT_RGB_DISTORTION" channel="0" attachment="Color"/>
+			<BeginRenderID id="500"/>
+			<EndRenderID id="500"/>
+			<Solution name="Distortion"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+
+		<!-- Shadow_Bloom -->
+		<RenderStage name="bloom_bright_stage0" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="BloomBright.Vertex.shader"/>
+			<ShaderFragment name="BloomBright.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="bloomBrightLuminance" scope="Global" value="0.08"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT100" name="RT_RGB_SOURCE" channel="0" minfilter="GL_LINEAR" magfilter="GL_LINEAR" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT25" name="RT_RGB_0" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="bloom_blur_h_stage1" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="BloomBlurH.Vertex.shader"/>
+			<ShaderFragment name="BloomBlurH.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="blurRange" scope="Local" value="0.005"/>
+					<Uniform1f name="bloomScale" scope="Local" value="1.50"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT25" name="RT_RGB_0" channel="0" minfilter="GL_LINEAR" magfilter="GL_LINEAR" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT25" name="RT_RGB_1" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="bloom_blur_v_stage2" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="BloomBlurV.Vertex.shader"/>
+			<ShaderFragment name="BloomBlurV.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="blurRange" scope="Local" value="0.005"/>
+					<Uniform1f name="bloomScale" scope="Local" value="1.50"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT25" name="RT_RGB_1" channel="0" minfilter="GL_LINEAR" magfilter="GL_LINEAR" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT25" name="RT_RGB_2" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="bloom_blend_stage3" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="ScreenBlendAdd.Vertex.shader"/>
+			<ShaderFragment name="ScreenBlendAdd.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="blendFactor1" scope="Local" value="1.0"/>
+					<Uniform1f name="blendFactor2" scope="Local" value="1.0"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT25" name="RT_RGB_2" channel="0" minfilter="GL_LINEAR" magfilter="GL_LINEAR" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Input category="RT100" name="RT_RGB_SOURCE" channel="1" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_0" channel="0" attachment="Color"/>
+		</RenderStage>
+
+		<!-- Shadow_Bloom_GodRay -->
+		<RenderStage name="godray_stage" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="GodRayBlend.Vertex.shader"/>
+			<ShaderFragment name="GodRayBlend.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="godRayLength" scope="Global" value="0.5"/>
+					<Uniform1f name="godRayFactor" scope="Global" value="0.45"/>
+					<Uniform1f name="godRayBlendFactor" scope="Global" value="1.0"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT100" name="RT_RGB_0" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Input category="RT100" name="RT_RGB_GODRAY" channel="1" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_1" channel="0" attachment="Color"/>
+		</RenderStage>
+
+		<!-- Shadow_Bloom_GodRay_Distortion -->
+		<RenderStage name="distortion_stage" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="Distortion.Vertex.shader"/>
+			<ShaderFragment name="Distortion.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="distortionRange" scope="Global" value="0.05"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT100" name="RT_RGB_1" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Input category="RT100" name="RT_RGB_DISTORTION" channel="1" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_SOURCE" channel="0" attachment="Color"/>
+		</RenderStage>
+
+		<!-- Shadow_Bloom_GodRay_Distortion_MotionBlur -->
+		<RenderStage name="motionblur_stage0" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="MotionBlur.Vertex.shader"/>
+			<ShaderFragment name="MotionBlur.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="motionBlurFactor" scope="Global" value="0.0"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT100" name="RT_RGB_SOURCE" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Input category="RT100" name="RT_RGB_MOTIONBLUR" channel="1" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_0" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="motionblur_backup_stage1" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="DiffuseSimple.Vertex.shader"/>
+			<ShaderFragment name="DiffuseSimple.Fragment.shader"/>
+			<Input category="RT100" name="RT_RGB_0" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_MOTIONBLUR" channel="0" attachment="Color"/>
+		</RenderStage>
+
+		<!-- Shadow_Bloom_GodRay_Distortion_MotionBlur_DOF -->
+		<RenderStage name="dof_stage0" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="DiffuseSimple.Vertex.shader"/>
+			<ShaderFragment name="DiffuseSimple.Fragment.shader"/>
+			<Input category="RT100" name="RT_RGB_0" channel="0" minfilter="GL_LINEAR" magfilter="GL_LINEAR" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT25" name="RT_RGB_0" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="dof_blur_h_stage1" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="BlurH.Vertex.shader"/>
+			<ShaderFragment name="BlurH.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="blurRange" scope="Local" value="0.005"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT25" name="RT_RGB_0" channel="0" minfilter="GL_LINEAR" magfilter="GL_LINEAR" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT25" name="RT_RGB_1" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="dof_blur_v_stage2" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="BlurV.Vertex.shader"/>
+			<ShaderFragment name="BlurV.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="blurRange" scope="Local" value="0.005"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT25" name="RT_RGB_1" channel="0" minfilter="GL_LINEAR" magfilter="GL_LINEAR" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT25" name="RT_RGB_2" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="dof_blend_stage3" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="DOFBlend.Vertex.shader"/>
+			<ShaderFragment name="DOFBlend.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="focalDistance" scope="Global" value="0.0"/>
+					<Uniform1f name="focalRange" scope="Global" value="64000.0"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT100" name="RT_RGB_0" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Input category="RT25" name="RT_RGB_2" channel="1" minfilter="GL_LINEAR" magfilter="GL_LINEAR" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Input category="RT100" name="RT_DEPTH" channel="2" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_1" channel="0" attachment="Color"/>
+		</RenderStage>
+
+		<!-- Shadow_Bloom_GodRay_Distortion_MotionBlur_DOF_Color -->
+		<RenderStage name="color_stage" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="Color.Vertex.shader"/>
+			<ShaderFragment name="Color.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="colorGrayFactor" scope="Global" value="0.0"/>
+					<Uniform3f name="colorAdd" scope="Global" value="0.0 0.0 0.0"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT100" name="RT_RGB_1" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_0" channel="0" attachment="Color"/>
+		</RenderStage>
+
+		<!-- Shadow_Bloom_GodRay_Distortion_MotionBlur_DOF_Color_[Stereo3D] -->
+		<RenderStage name="stereo3d_stage" type="SCREEN" enable="GL_FALSE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="SSRS.Vertex.shader"/>
+			<ShaderFragment name="SSRS.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="ssrsMaxParallax" scope="Global" value="0.01"/>
+					<Uniform1f name="ssrsFocusDistance" scope="Global" value="0.001"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT100" name="RT_RGB_0" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Input category="RT100" name="RT_DEPTH" channel="1" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_1" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="stereo3d_final_stage" type="SCREEN" enable="GL_FALSE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="DiffuseSimple.Vertex.shader"/>
+			<ShaderFragment name="DiffuseSimple.Fragment.shader"/>
+			<Input category="RT100" name="RT_RGB_1" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_0" channel="0" attachment="Color"/>
+		</RenderStage>
+
+		<!-- Shadow_Bloom_GodRay_Distortion_MotionBlur_DOF_Color_[Stereo3D]_Final -->
+		<RenderStage name="final_stage" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="DiffuseSimple.Vertex.shader"/>
+			<ShaderFragment name="DiffuseSimple.Fragment.shader"/>
+			<Input category="RT100" name="RT_RGB_0" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+		</RenderStage>
+	</Solution>
+
+	<!-- GLES3 -->
+	<Solution name="Extreme">
+		<RenderStage name="scene_shadow_cast_stage0" type="SHADOW_CAST" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+			<Output category="DEPTH" name="RT_DEPTH" channel="0" attachment="Depth"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="100"/>
+			<Solution name="Depth"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_shadow_ssao_mesh_stage1" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+			<Input category="DEPTH" name="RT_DEPTH" channel="5" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_0" channel="0" attachment="Color"/>
+			<Output category="RT100" name="RT_DEPTH" channel="1" attachment="Color"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="200"/>
+			<Solution name="Extreme"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_shadow_ssao_ao_stage2" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="SSAO.Vertex.shader"/>
+			<ShaderFragment name="SSAO.Fragment.shader">
+				<Parameters>
+					<Uniform1i name="ssaoSampleInScreenSpace" scope="Global" value="1"/>
+					<Uniform1f name="ssaoSampleLengthScale" scope="Global" value="0.01"/>
+					<Uniform1f name="ssaoSampleLengthWorldSpace" scope="Global" value="100.0"/>
+					<Uniform1f name="ssaoSampleLengthScreenSpace" scope="Global" value="0.20"/>
+					<Uniform1f name="ssaoHighLight" scope="Global" value="1.85"/>
+					<Uniform1f name="ssaoAccessibility" scope="Global" value="0.5"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT100" name="RT_DEPTH" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Input category="TEXTURE" name="ssao_noise.bmp" channel="1" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_REPEAT" wrapt="GL_REPEAT"/>
+			<Output category="RT100" name="RT_RGB_1" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="scene_shadow_ssao_blend_stage3" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="ScreenBlendMult.Vertex.shader"/>
+			<ShaderFragment name="ScreenBlendMult.Fragment.shader"/>
+			<Input category="RT100" name="RT_RGB_0" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Input category="RT100" name="RT_RGB_1" channel="1" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_SOURCE" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="scene_shadow_ssao_effect_stage4" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<Output category="RT100" name="RT_RGB_SOURCE" channel="0" attachment="Color"/>
+			<BeginRenderID id="500"/>
+			<EndRenderID id="500"/>
+			<Solution name="Ultra"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_godray_mesh_stage0" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_TRUE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<Output category="RT100" name="RT_RGB_GODRAY" channel="0" attachment="Color"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="100"/>
+			<Solution name="GodRay"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_godray_effect_stage1" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<Output category="RT100" name="RT_RGB_GODRAY" channel="0" attachment="Color"/>
+			<BeginRenderID id="500"/>
+			<EndRenderID id="500"/>
+			<Solution name="GodRay"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_distortion_mesh_stage0" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_TRUE" value="0.5 0.5 1.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<Output category="RT100" name="RT_RGB_DISTORTION" channel="0" attachment="Color"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="100"/>
+			<Solution name="Distortion"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+		<RenderStage name="scene_distortion_effect_stage1" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.5 0.5 1.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<Output category="RT100" name="RT_RGB_DISTORTION" channel="0" attachment="Color"/>
+			<BeginRenderID id="500"/>
+			<EndRenderID id="500"/>
+			<Solution name="Distortion"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+
+		<!-- Shadow_SSAO_Bloom -->
+		<RenderStage name="bloom_bright_stage0" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="BloomBright.Vertex.shader"/>
+			<ShaderFragment name="BloomBright.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="bloomBrightLuminance" scope="Global" value="0.08"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT100" name="RT_RGB_SOURCE" channel="0" minfilter="GL_LINEAR" magfilter="GL_LINEAR" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT25" name="RT_RGB_0" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="bloom_blur_h_stage1" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="BloomBlurH.Vertex.shader"/>
+			<ShaderFragment name="BloomBlurH.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="blurRange" scope="Local" value="0.005"/>
+					<Uniform1f name="bloomScale" scope="Local" value="1.50"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT25" name="RT_RGB_0" channel="0" minfilter="GL_LINEAR" magfilter="GL_LINEAR" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT25" name="RT_RGB_1" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="bloom_blur_v_stage2" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="BloomBlurV.Vertex.shader"/>
+			<ShaderFragment name="BloomBlurV.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="blurRange" scope="Local" value="0.005"/>
+					<Uniform1f name="bloomScale" scope="Local" value="1.50"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT25" name="RT_RGB_1" channel="0" minfilter="GL_LINEAR" magfilter="GL_LINEAR" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT25" name="RT_RGB_2" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="bloom_blend_stage3" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="ScreenBlendAdd.Vertex.shader"/>
+			<ShaderFragment name="ScreenBlendAdd.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="blendFactor1" scope="Local" value="1.0"/>
+					<Uniform1f name="blendFactor2" scope="Local" value="1.0"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT25" name="RT_RGB_2" channel="0" minfilter="GL_LINEAR" magfilter="GL_LINEAR" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Input category="RT100" name="RT_RGB_SOURCE" channel="1" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_0" channel="0" attachment="Color"/>
+		</RenderStage>
+
+		<!-- Shadow_SSAO_Bloom_GodRay -->
+		<RenderStage name="godray_stage" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="GodRayBlend.Vertex.shader"/>
+			<ShaderFragment name="GodRayBlend.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="godRayLength" scope="Global" value="0.5"/>
+					<Uniform1f name="godRayFactor" scope="Global" value="0.45"/>
+					<Uniform1f name="godRayBlendFactor" scope="Global" value="1.0"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT100" name="RT_RGB_0" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Input category="RT100" name="RT_RGB_GODRAY" channel="1" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_1" channel="0" attachment="Color"/>
+		</RenderStage>
+
+		<!-- Shadow_SSAO_Bloom_GodRay_Distortion -->
+		<RenderStage name="distortion_stage" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="Distortion.Vertex.shader"/>
+			<ShaderFragment name="Distortion.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="distortionRange" scope="Global" value="0.05"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT100" name="RT_RGB_1" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Input category="RT100" name="RT_RGB_DISTORTION" channel="1" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_SOURCE" channel="0" attachment="Color"/>
+		</RenderStage>
+
+		<!-- Shadow_SSAO_Bloom_GodRay_Distortion_MotionBlur -->
+		<RenderStage name="motionblur_stage0" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="MotionBlur.Vertex.shader"/>
+			<ShaderFragment name="MotionBlur.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="motionBlurFactor" scope="Global" value="0.0"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT100" name="RT_RGB_SOURCE" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Input category="RT100" name="RT_RGB_MOTIONBLUR" channel="1" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_0" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="motionblur_backup_stage1" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="DiffuseSimple.Vertex.shader"/>
+			<ShaderFragment name="DiffuseSimple.Fragment.shader"/>
+			<Input category="RT100" name="RT_RGB_0" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_MOTIONBLUR" channel="0" attachment="Color"/>
+		</RenderStage>
+
+		<!-- Shadow_SSAO_Bloom_GodRay_Distortion_MotionBlur_DOF -->
+		<RenderStage name="dof_stage0" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="DiffuseSimple.Vertex.shader"/>
+			<ShaderFragment name="DiffuseSimple.Fragment.shader"/>
+			<Input category="RT100" name="RT_RGB_0" channel="0" minfilter="GL_LINEAR" magfilter="GL_LINEAR" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT25" name="RT_RGB_0" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="dof_blur_h_stage1" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="BlurH.Vertex.shader"/>
+			<ShaderFragment name="BlurH.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="blurRange" scope="Local" value="0.005"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT25" name="RT_RGB_0" channel="0" minfilter="GL_LINEAR" magfilter="GL_LINEAR" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT25" name="RT_RGB_1" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="dof_blur_v_stage2" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="BlurV.Vertex.shader"/>
+			<ShaderFragment name="BlurV.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="blurRange" scope="Local" value="0.005"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT25" name="RT_RGB_1" channel="0" minfilter="GL_LINEAR" magfilter="GL_LINEAR" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT25" name="RT_RGB_2" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="dof_blend_stage3" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="DOFBlend.Vertex.shader"/>
+			<ShaderFragment name="DOFBlend.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="focalDistance" scope="Global" value="0.0"/>
+					<Uniform1f name="focalRange" scope="Global" value="64000.0"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT100" name="RT_RGB_0" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Input category="RT25" name="RT_RGB_2" channel="1" minfilter="GL_LINEAR" magfilter="GL_LINEAR" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Input category="RT100" name="RT_DEPTH" channel="2" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_1" channel="0" attachment="Color"/>
+		</RenderStage>
+
+		<!-- Shadow_SSAO_Bloom_GodRay_Distortion_MotionBlur_DOF_Color -->
+		<RenderStage name="color_stage" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="Color.Vertex.shader"/>
+			<ShaderFragment name="Color.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="colorGrayFactor" scope="Global" value="0.0"/>
+					<Uniform3f name="colorAdd" scope="Global" value="0.0 0.0 0.0"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT100" name="RT_RGB_1" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_0" channel="0" attachment="Color"/>
+		</RenderStage>
+
+		<!-- Shadow_SSAO_Bloom_GodRay_Distortion_MotionBlur_DOF_Color_[Stereo3D] -->
+		<RenderStage name="stereo3d_stage" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="SSRS.Vertex.shader"/>
+			<ShaderFragment name="SSRS.Fragment.shader">
+				<Parameters>
+					<Uniform1f name="ssrsMaxParallax" scope="Global" value="0.01"/>
+					<Uniform1f name="ssrsFocusDistance" scope="Global" value="0.001"/>
+				</Parameters>
+			</ShaderFragment>
+			<Input category="RT100" name="RT_RGB_0" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Input category="RT100" name="RT_DEPTH" channel="1" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_1" channel="0" attachment="Color"/>
+		</RenderStage>
+		<RenderStage name="stereo3d_final_stage" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="DiffuseSimple.Vertex.shader"/>
+			<ShaderFragment name="DiffuseSimple.Fragment.shader"/>
+			<Input category="RT100" name="RT_RGB_1" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+			<Output category="RT100" name="RT_RGB_0" channel="0" attachment="Color"/>
+		</RenderStage>
+
+		<!-- Shadow_SSAO_Bloom_GodRay_Distortion_MotionBlur_DOF_Color_[Stereo3D]_Final -->
+		<RenderStage name="final_stage" type="SCREEN" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_FALSE" value="1.0"/>
+			<ShaderVertex name="DiffuseSimple.Vertex.shader"/>
+			<ShaderFragment name="DiffuseSimple.Fragment.shader"/>
+			<Input category="RT100" name="RT_RGB_0" channel="0" minfilter="GL_NEAREST" magfilter="GL_NEAREST" wraps="GL_CLAMP_TO_EDGE" wrapt="GL_CLAMP_TO_EDGE"/>
+		</RenderStage>
+	</Solution>
+
+	<Solution name="Drawing">
+		<RenderStage name="scene_stage0" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="100"/>
+			<Solution name="Drawing"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+	</Solution>
+
+	<Solution name="Depth">
+		<RenderStage name="scene_stage0" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+			<BeginRenderID id="100"/>
+			<EndRenderID id="100"/>
+			<Solution name="Depth"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+	</Solution>
+
+	<Solution name="LightMap">
+		<RenderStage name="scene_stage0" type="SCENE" enable="GL_TRUE">
+			<ClearFrameBuffer enable="GL_FALSE" value="0.0 0.0 0.0"/>
+			<ClearDepthBuffer enable="GL_TRUE" value="1.0"/>
+			<BeginRenderID id="200"/>
+			<EndRenderID id="200"/>
+			<Solution name="LightMap"/>
+			<PassGroup name="FrameBuffer"/>
+		</RenderStage>
+	</Solution>
+</RenderFlow>

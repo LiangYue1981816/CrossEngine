@@ -1,0 +1,631 @@
+<Shader type="fragment" compatible="gles3">
+<Parameters>
+	<Uniform1i name="diffusemap" scope="Local" value="0"/>
+	<Uniform1i name="lightmap" scope="Local" value="1"/>
+	<Uniform1i name="envmap" scope="Local" value="2"/>
+	<Uniform1i name="normalmap" scope="Local" value="3"/>
+	<Uniform1i name="specularmap" scope="Local" value="4"/>
+	<Uniform1i name="shadowmap" scope="Local" value="5"/>
+	<Uniform1f name="envmapFactor" scope="Global" value="0.1"/>
+	<Uniform1f name="lightmapFactor" scope="Global" value="1.2"/>
+	<Uniform1f name="specularmapFactor" scope="Global" value="1.0"/>
+	<Uniform1f name="shadowValue" scope="Global" value="0.4"/>
+</Parameters>
+
+<Source>
+<![CDATA[
+// #define ENABLE_SKINNING
+// #define ENABLE_FOG
+// #define ENABLE_LIGHTING_UNIT0
+// #define ENABLE_LIGHTING_UNIT1
+// #define ENABLE_DIFFUSELIGHTING
+// #define ENABLE_SPECULARING
+// #define ENABLE_RIMLIGHTING
+// #define ENABLE_SKYLIGHTING
+// #define ENABLE_AMBIENT_OCCLUSION
+// #define ENABLE_ENVMAP
+// #define ENABLE_LIGHTMAP
+// #define ENABLE_NORMALMAP
+// #define ENABLE_SPECULARMAP
+// #define ENABLE_SHADOWMAP
+// #define ENABLE_SHADOWMAP_PCF
+// #define ENABLE_SHADOWMAP_PCF2X2
+// #define ENABLE_MRT_COLOR_DEPTH
+// #define ENABLE_OPTIONAL_NORMALIZE
+// #define ENABLE_ALPHA_TEST
+
+
+precision mediump int;
+precision mediump float;
+	
+
+#define MAX_LIGHTS 2
+
+
+#if defined GL_ES
+	#define IS_GLSL300_BEGIN #if __VERSION__ >= 300
+	#define IS_GLSL300_ELSE  #else
+	#define IS_GLSL300_END   #endif
+
+	IS_GLSL300_BEGIN
+		#define DEFINE_VARYING #define VARYING in
+		DEFINE_VARYING
+	IS_GLSL300_ELSE
+		#define DEFINE_VARYING #define VARYING varying
+		DEFINE_VARYING
+	IS_GLSL300_END
+
+	#define LOWP lowp
+	#define MEDIUMP mediump
+	#define HIGHP highp
+
+	#define UNIFORM_LOWP uniform lowp
+	#define UNIFORM_MEDIUMP uniform mediump
+	#define UNIFORM_HIGHP uniform highp
+
+	#define VARYING_LOWP VARYING lowp
+	#define VARYING_MEDIUMP VARYING mediump
+	#define VARYING_HIGHP VARYING mediump // highp (Compatible Mali GPU)
+#else
+	#define IS_GLSL300_BEGIN #if 1
+	#define IS_GLSL300_ELSE  #else
+	#define IS_GLSL300_END   #endif
+
+	#define LOWP
+	#define MEDIUMP
+	#define HIGHP
+
+	#define UNIFORM_LOWP uniform
+	#define UNIFORM_MEDIUMP uniform
+	#define UNIFORM_HIGHP uniform
+
+	#define VARYING_LOWP varying
+	#define VARYING_MEDIUMP varying
+	#define VARYING_HIGHP varying
+#endif
+
+
+#if defined GL_ES
+	IS_GLSL300_BEGIN
+		layout(location = 0) out vec4 fragColor0;
+		layout(location = 1) out vec4 fragColor1;
+
+		#define DEFINE_TEXTURE2D   #define TEXTURE2D texture
+		#define DEFINE_FRAG_COLOR0 #define FRAG_COLOR0 fragColor0
+		#define DEFINE_FRAG_COLOR1 #define FRAG_COLOR1 fragColor1
+
+		DEFINE_TEXTURE2D
+		DEFINE_FRAG_COLOR0
+		DEFINE_FRAG_COLOR1
+	IS_GLSL300_ELSE
+		#define DEFINE_TEXTURE2D   #define TEXTURE2D texture2D
+		#define DEFINE_FRAG_COLOR0 #define FRAG_COLOR0 gl_FragColor
+		#define DEFINE_FRAG_COLOR1 #define FRAG_COLOR1 gl_FragColor
+
+		DEFINE_TEXTURE2D
+		DEFINE_FRAG_COLOR0
+		DEFINE_FRAG_COLOR1
+	IS_GLSL300_END
+#else
+	#define DEFINE_TEXTURE2D   #define TEXTURE2D texture2D
+	#define DEFINE_FRAG_COLOR0 #define FRAG_COLOR0 gl_FragData[0]
+	#define DEFINE_FRAG_COLOR1 #define FRAG_COLOR1 gl_FragData[1]
+
+	DEFINE_TEXTURE2D
+	DEFINE_FRAG_COLOR0
+	DEFINE_FRAG_COLOR1
+#endif
+
+
+#if defined ENABLE_OPTIONAL_NORMALIZE
+	#define OPTIONAL_NORMALIZE(v) v
+#else
+	#define OPTIONAL_NORMALIZE(v) normalize(v)
+#endif
+
+
+UNIFORM_MEDIUMP sampler2D diffusemap;
+
+#if defined ENABLE_FOG
+	UNIFORM_LOWP vec3 _fogColor;
+	UNIFORM_HIGHP vec4 _fogParam; // mode, start, end, density
+#endif
+
+#if defined ENABLE_ENVMAP
+	UNIFORM_MEDIUMP samplerCube envmap;
+	UNIFORM_LOWP float envmapFactor;
+#endif
+
+#if defined ENABLE_SHADOWMAP
+	UNIFORM_LOWP int _shadowReceiver;
+	UNIFORM_MEDIUMP float shadowValue;
+
+	#if defined ENABLE_SHADOWMAP_PCF || defined ENABLE_SHADOWMAP_PCF2X2
+		IS_GLSL300_BEGIN
+			UNIFORM_HIGHP sampler2DShadow shadowmap;
+		IS_GLSL300_ELSE
+			UNIFORM_HIGHP sampler2D shadowmap;
+		IS_GLSL300_END
+	#else
+		UNIFORM_HIGHP sampler2D shadowmap;
+	#endif
+#endif
+
+#if defined ENABLE_LIGHTMAP
+	UNIFORM_MEDIUMP sampler2D lightmap;
+	UNIFORM_LOWP float lightmapFactor;
+#endif
+
+#if defined ENABLE_NORMALMAP
+	UNIFORM_MEDIUMP sampler2D normalmap;
+#endif
+
+#if defined ENABLE_DIFFUSELIGHTING || defined ENABLE_SPECULARING || defined ENABLE_RIMLIGHTING || defined ENABLE_SKYLIGHTING
+	UNIFORM_LOWP int _lightCount;
+	UNIFORM_HIGHP vec4 _lightPosition[MAX_LIGHTS];
+	UNIFORM_HIGHP vec3 _lightAttenuation[MAX_LIGHTS];
+
+	#if defined ENABLE_DIFFUSELIGHTING
+		UNIFORM_LOWP vec3 _lightAmbient[MAX_LIGHTS];
+		UNIFORM_LOWP vec3 _lightDiffuse[MAX_LIGHTS];
+	#endif
+
+	#if defined ENABLE_SPECULARING
+		UNIFORM_LOWP vec3 _lightSpecular[MAX_LIGHTS];
+		#if defined ENABLE_SPECULARMAP
+			UNIFORM_MEDIUMP sampler2D specularmap;
+			UNIFORM_LOWP float specularmapFactor;
+		#endif
+	#endif
+
+	#if defined ENABLE_RIMLIGHTING
+		UNIFORM_LOWP vec3 _lightRimColor[MAX_LIGHTS];
+	#endif
+
+	#if defined ENABLE_SKYLIGHTING
+		UNIFORM_LOWP vec3 _lightLowerSkyColor[MAX_LIGHTS];
+		UNIFORM_LOWP vec3 _lightUpperSkyColor[MAX_LIGHTS];
+	#endif
+#endif
+
+#if defined ENABLE_MRT_COLOR_DEPTH
+	IS_GLSL300_BEGIN
+		UNIFORM_HIGHP vec4 _cameraPerspectiveParam; // fovy, aspect, znear, zfar
+	IS_GLSL300_END
+#endif
+
+
+VARYING_MEDIUMP vec4 vTexCoord;
+
+#if defined ENABLE_ENVMAP
+	VARYING_MEDIUMP vec3 vRefViewDirection;
+
+	#if defined ENABLE_NORMALMAP
+		VARYING_MEDIUMP mat3 vRefTBN;
+	#else
+		VARYING_MEDIUMP vec3 vRefNormal;
+	#endif
+#endif
+
+#if defined ENABLE_SHADOWMAP
+	VARYING_HIGHP vec4 vShadowProjCoord;
+#endif
+
+#if defined ENABLE_DIFFUSELIGHTING || defined ENABLE_SPECULARING || defined ENABLE_RIMLIGHTING || defined ENABLE_FOG || defined ENABLE_MRT_COLOR_DEPTH
+	VARYING_HIGHP vec3 vPosition;
+#endif
+
+#if defined ENABLE_DIFFUSELIGHTING || defined ENABLE_SPECULARING || defined ENABLE_RIMLIGHTING || defined ENABLE_SKYLIGHTING
+	#if !defined ENABLE_NORMALMAP
+		VARYING_MEDIUMP vec3 vNormal;
+	#endif
+
+	#if defined ENABLE_DIFFUSELIGHTING
+		VARYING_MEDIUMP vec3 vLightDirection[MAX_LIGHTS];
+	#endif
+
+	#if defined ENABLE_SPECULARING
+		VARYING_MEDIUMP vec3 vHalfVector[MAX_LIGHTS];
+	#endif
+
+	#if defined ENABLE_RIMLIGHTING
+		VARYING_MEDIUMP vec3 vCameraVector;
+	#endif
+
+	#if defined ENABLE_SKYLIGHTING && defined ENABLE_NORMALMAP
+		VARYING_MEDIUMP vec3 vTangentUpVector;
+	#endif
+#endif
+
+
+const LOWP float c_zero = 0.0;
+const LOWP float c_one  = 1.0;
+
+const LOWP int index_zero = 0;
+const LOWP int index_one  = 1;
+
+const HIGHP float bias = 0.001;
+const HIGHP float epsilon = 0.0005;
+
+
+HIGHP vec4 EncodeFloatRGBA(HIGHP float value)
+{
+	const HIGHP vec4 magica = vec4(1.0, 255.0, 65025.0, 16581375.0);
+	const HIGHP vec4 magicb = vec4(1.0/255.0, 1.0/255.0, 1.0/255.0, 0.0);
+
+	HIGHP vec4 rgba = magica * value;
+	rgba  = fract(rgba);
+	rgba -= magicb * rgba.yzww;
+
+	return rgba;
+}
+
+void main()
+{
+	MEDIUMP vec4 diffuseColor = TEXTURE2D(diffusemap, vTexCoord.xy);
+
+	#if defined ENABLE_ALPHA_TEST
+	{
+		if (diffuseColor.a < 0.5)
+		{
+			discard;
+		}
+	}
+	#endif
+
+	#if defined ENABLE_ENVMAP || defined ENABLE_DIFFUSELIGHTING || defined ENABLE_SPECULARING || defined ENABLE_RIMLIGHTING || defined ENABLE_SKYLIGHTING
+		MEDIUMP vec3 pixelNormal;
+
+		#if defined ENABLE_NORMALMAP
+		{
+			pixelNormal = TEXTURE2D(normalmap, vTexCoord.xy).xyz * 2.0 - 1.0;
+			pixelNormal = normalize(pixelNormal);
+		}
+		#else
+		{
+			#if defined ENABLE_DIFFUSELIGHTING || defined ENABLE_SPECULARING || defined ENABLE_RIMLIGHTING || defined ENABLE_SKYLIGHTING
+			{
+				pixelNormal = OPTIONAL_NORMALIZE(vNormal);
+			}
+			#endif
+		}
+		#endif
+	#endif
+
+	#if defined ENABLE_ENVMAP
+	{
+		#if defined ENABLE_NORMALMAP
+		{
+			MEDIUMP vec3 refViewDirection = OPTIONAL_NORMALIZE(vRefViewDirection);
+			MEDIUMP vec3 reflectDirection = reflect(refViewDirection, vRefTBN * pixelNormal);
+			diffuseColor.rgb += textureCube(envmap, reflectDirection.xyz).rgb * clamp(diffuseColor.g + envmapFactor, 0.0, 1.0);
+//			diffuseColor.rgb  = mix(diffuseColor.rgb, textureCube(envmap, reflectDirection.xyz).rgb, envmapFactor);
+		}
+		#else
+		{
+			MEDIUMP vec3 refNormal = OPTIONAL_NORMALIZE(vRefNormal);
+			MEDIUMP vec3 refViewDirection = OPTIONAL_NORMALIZE(vRefViewDirection);
+			MEDIUMP vec3 reflectDirection = reflect(refViewDirection, refNormal);
+			diffuseColor.rgb += textureCube(envmap, reflectDirection.xyz).rgb * clamp(diffuseColor.g + envmapFactor, 0.0, 1.0);
+//			diffuseColor.rgb  = mix(diffuseColor.rgb, textureCube(envmap, reflectDirection.xyz).rgb, envmapFactor);
+		}
+		#endif
+	}
+	#endif
+
+	#if defined ENABLE_DIFFUSELIGHTING || defined ENABLE_SPECULARING || defined ENABLE_RIMLIGHTING || defined ENABLE_SKYLIGHTING
+	{
+		MEDIUMP vec3 diffuseLighting = vec3(0.0, 0.0, 0.0);
+
+		#if defined ENABLE_SPECULARING
+			MEDIUMP vec3 specularLighting = vec3(0.0, 0.0, 0.0);
+		#endif
+
+		#if defined ENABLE_RIMLIGHTING
+			MEDIUMP vec3 rimLighting = vec3(0.0, 0.0, 0.0);
+			MEDIUMP vec3 cameraVector = OPTIONAL_NORMALIZE(vCameraVector);
+		#endif
+
+		#if defined ENABLE_SKYLIGHTING && defined ENABLE_NORMALMAP
+			MEDIUMP vec3 tangentUpVector = OPTIONAL_NORMALIZE(vTangentUpVector);
+		#endif
+
+		#if defined ENABLE_DIFFUSELIGHTING || defined ENABLE_SPECULARING || defined ENABLE_RIMLIGHTING
+			HIGHP float len;
+			HIGHP float lightAttenuation;
+		#endif
+
+		#if defined ENABLE_LIGHTMAP
+		{
+			diffuseLighting += TEXTURE2D(lightmap, vTexCoord.zw).rgb * lightmapFactor;
+		}
+		#endif
+
+		#if defined ENABLE_LIGHTING_UNIT0
+		{
+			if (0 < _lightCount)
+			{
+				#if defined ENABLE_DIFFUSELIGHTING || defined ENABLE_SPECULARING || defined ENABLE_RIMLIGHTING
+				{
+					if (_lightPosition[0].w == c_zero)
+					{
+						lightAttenuation = 1.0;
+					}
+					else
+					{
+						len = distance(_lightPosition[0].xyz, vPosition);
+						lightAttenuation = 1.0 / max(_lightAttenuation[0].x + _lightAttenuation[0].y * len + _lightAttenuation[0].z * len * len, 0.65);
+					}
+				}
+				#endif
+
+				#if defined ENABLE_DIFFUSELIGHTING
+				{
+					MEDIUMP vec3 lightDirection = OPTIONAL_NORMALIZE(vLightDirection[0]);
+					diffuseLighting += _lightDiffuse[0] * lightAttenuation * max(dot(pixelNormal, lightDirection), 0.0);
+					diffuseLighting += _lightAmbient[0];
+				}
+				#endif
+
+				#if defined ENABLE_SPECULARING
+				{
+					// Fast specular approximation (http://www.gamasutra.com/view/feature/2972/a_noninteger_power_function_on_.php)
+					// Basically pow( N, P ) can be approximated by pow( max( A * N + B ), M )
+					//      - A and B are constants that must be tweaked to get artifact-free results
+					//      - M can be really small in practice (2 looks good, can be replaced by single multiply)
+					// This should result in a mad_sat instruction plus one multiply (2 instructions total!)
+
+					#define SPEC_APPROX_A  6.645
+					#define SPEC_APPROX_B -5.645
+
+					MEDIUMP vec3 halfVector = OPTIONAL_NORMALIZE(vHalfVector[0]);
+					MEDIUMP float specularBase = max(dot(pixelNormal, halfVector), 0.0);
+					MEDIUMP float specularAmount = clamp(SPEC_APPROX_A * specularBase + SPEC_APPROX_B, 0.0, 1.0);
+					specularLighting += _lightSpecular[0] * lightAttenuation * specularAmount * specularAmount;
+				}
+				#endif
+
+				#if defined ENABLE_RIMLIGHTING
+				{
+					MEDIUMP float rimAmount = max(0.01, 1.0 - abs(dot(pixelNormal, cameraVector)));
+					rimLighting += _lightRimColor[0] * lightAttenuation * rimAmount * rimAmount;
+				}
+				#endif
+
+				#if defined ENABLE_SKYLIGHTING
+				{
+					#if defined ENABLE_NORMALMAP
+					{
+						MEDIUMP float skyAmount = dot(pixelNormal, tangentUpVector) * 0.5 + 0.5;
+						diffuseLighting += mix(_lightLowerSkyColor[0].xyz, _lightUpperSkyColor[0].xyz, skyAmount);
+					}
+					#else
+					{
+						MEDIUMP float skyAmount = pixelNormal.z * 0.5 + 0.5;
+						diffuseLighting += mix(_lightLowerSkyColor[0].xyz, _lightUpperSkyColor[0].xyz, skyAmount);
+					}
+					#endif
+				}
+				#endif
+			}
+		}
+		#endif
+
+		#if defined ENABLE_LIGHTING_UNIT1
+		{
+			if (1 < _lightCount)
+			{
+				#if defined ENABLE_DIFFUSELIGHTING || defined ENABLE_SPECULARING || defined ENABLE_RIMLIGHTING
+				{
+					if (_lightPosition[1].w == c_zero)
+					{
+						lightAttenuation = 1.0;
+					}
+					else
+					{
+						len = distance(_lightPosition[1].xyz, vPosition);
+						lightAttenuation = 1.0 / max(_lightAttenuation[1].x + _lightAttenuation[1].y * len + _lightAttenuation[1].z * len * len, 0.65);
+					}
+				}
+				#endif
+
+				#if defined ENABLE_DIFFUSELIGHTING
+				{
+					MEDIUMP vec3 lightDirection = OPTIONAL_NORMALIZE(vLightDirection[1]);
+					diffuseLighting += _lightDiffuse[1] * lightAttenuation * max(dot(pixelNormal, lightDirection), 0.0);
+					diffuseLighting += _lightAmbient[1];
+				}
+				#endif
+
+				#if defined ENABLE_SPECULARING
+				{
+					// Fast specular approximation (http://www.gamasutra.com/view/feature/2972/a_noninteger_power_function_on_.php)
+					// Basically pow( N, P ) can be approximated by pow( max( A * N + B ), M )
+					//      - A and B are constants that must be tweaked to get artifact-free results
+					//      - M can be really small in practice (2 looks good, can be replaced by single multiply)
+					// This should result in a mad_sat instruction plus one multiply (2 instructions total!)
+
+					#define SPEC_APPROX_A  6.645
+					#define SPEC_APPROX_B -5.645
+
+					MEDIUMP vec3 halfVector = OPTIONAL_NORMALIZE(vHalfVector[1]);
+					MEDIUMP float specularBase = max(dot(pixelNormal, halfVector), 0.0);
+					MEDIUMP float specularAmount = clamp(SPEC_APPROX_A * specularBase + SPEC_APPROX_B, 0.0, 1.0);
+					specularLighting += _lightSpecular[1] * lightAttenuation * specularAmount * specularAmount;
+				}
+				#endif
+
+				#if defined ENABLE_RIMLIGHTING
+				{
+					MEDIUMP float rimAmount = max(0.01, 1.0 - abs(dot(pixelNormal, cameraVector)));
+					rimLighting += _lightRimColor[1] * lightAttenuation * rimAmount * rimAmount;
+				}
+				#endif
+
+				#if defined ENABLE_SKYLIGHTING
+				{
+					#if defined ENABLE_NORMALMAP
+					{
+						MEDIUMP float skyAmount = dot(pixelNormal, tangentUpVector) * 0.5 + 0.5;
+						diffuseLighting += mix(_lightLowerSkyColor[1].xyz, _lightUpperSkyColor[1].xyz, skyAmount);
+					}
+					#else
+					{
+						MEDIUMP float skyAmount = pixelNormal.z * 0.5 + 0.5;
+						diffuseLighting += mix(_lightLowerSkyColor[1].xyz, _lightUpperSkyColor[1].xyz, skyAmount);
+					}
+					#endif
+				}
+				#endif
+			}
+		}
+		#endif
+
+		diffuseColor.rgb *= diffuseLighting;
+
+		#if defined ENABLE_RIMLIGHTING
+		{
+			rimLighting *= diffuseColor.rgb;
+		}
+		#endif
+
+		#if defined ENABLE_SPECULARING
+		{
+			#if defined ENABLE_SPECULARMAP
+			{
+				specularLighting *= TEXTURE2D(specularmap, vTexCoord.xy).rgb * specularmapFactor;
+			}
+			#endif
+
+			diffuseColor.rgb += specularLighting;
+		}
+		#endif
+
+		#if defined ENABLE_RIMLIGHTING
+		{
+			diffuseColor.rgb += rimLighting;
+		}
+		#endif
+	}
+	#else
+	{
+		#if defined ENABLE_LIGHTMAP
+		{
+			diffuseColor.rgb *= TEXTURE2D(lightmap, vTexCoord.zw).rgb * lightmapFactor;
+		}
+		#endif
+	}
+	#endif
+
+	#if defined ENABLE_SHADOWMAP
+	{
+		if (_shadowReceiver == index_one && vShadowProjCoord.z < vShadowProjCoord.w)
+		{
+			#if defined ENABLE_SHADOWMAP_PCF || defined ENABLE_SHADOWMAP_PCF2X2
+			{
+				IS_GLSL300_BEGIN
+				{
+					#if defined ENABLE_SHADOWMAP_PCF
+					{
+						HIGHP float depth = textureProj(shadowmap, vShadowProjCoord);
+						diffuseColor.rgb *= mix(shadowValue, 1.0, depth);
+					}
+					#endif
+
+					#if defined ENABLE_SHADOWMAP_PCF2X2
+					{
+						HIGHP vec4 offset;
+						HIGHP float depth = 0.0;
+						HIGHP float offsetFactor = vShadowProjCoord.w * epsilon;
+
+						offset = vec4(-0.5, -0.5, 0.0, 0.0) * offsetFactor;
+						depth += textureProj(shadowmap, vShadowProjCoord + offset);
+
+						offset = vec4(-0.5,  0.5, 0.0, 0.0) * offsetFactor;
+						depth += textureProj(shadowmap, vShadowProjCoord + offset);
+
+						offset = vec4( 0.5, -0.5, 0.0, 0.0) * offsetFactor;
+						depth += textureProj(shadowmap, vShadowProjCoord + offset);
+
+						offset = vec4( 0.5,  0.5, 0.0, 0.0) * offsetFactor;
+						depth += textureProj(shadowmap, vShadowProjCoord + offset);
+
+						diffuseColor.rgb *= mix(shadowValue, 1.0, depth * 0.25);
+					}
+					#endif
+				}
+				IS_GLSL300_ELSE
+				{
+					HIGHP float comp = vShadowProjCoord.z / vShadowProjCoord.w;
+//					HIGHP float comp = (vShadowProjCoord.z - bias) / vShadowProjCoord.w;
+					HIGHP float depth = texture2DProj(shadowmap, vShadowProjCoord).r;
+					HIGHP float shadowFactor = comp <= depth ? 1.0 : shadowValue;
+					diffuseColor.rgb *= shadowFactor;
+				}
+				IS_GLSL300_END
+			}
+			#else
+			{
+				HIGHP float comp = vShadowProjCoord.z / vShadowProjCoord.w;
+//				HIGHP float comp = (vShadowProjCoord.z - bias) / vShadowProjCoord.w;
+				HIGHP float depth = texture2DProj(shadowmap, vShadowProjCoord).r;
+				HIGHP float shadowFactor = comp <= depth ? 1.0 : shadowValue;
+				diffuseColor.rgb *= shadowFactor;
+			}
+			#endif
+		}
+	}
+	#endif
+
+	#if defined ENABLE_FOG
+	{
+		#define _FOG_MODE_LINEAR 0
+		#define _FOG_MODE_EXP    1
+		#define _FOG_MODE_EXP2   2
+
+		LOWP int fogMode = (int)_fogParam.x;
+		HIGHP float fogStart = _fogParam.y;
+		HIGHP float fogEnd = _fogParam.z;
+		HIGHP float fogDensity = _fogParam.w;
+
+		switch (fogMode) {
+		case _FOG_MODE_LINEAR:
+			fogFactor = (fogEnd - vPosition.z) / (fogEnd - fogStart);
+			break;
+		case _FOG_MODE_EXP:
+			fogFactor = exp(-(vPosition.z * fogDensity));
+			break;
+		case _FOG_MODE_EXP2:
+			fogFactor = (vPosition.z * fogDensity);
+			fogFactor = exp(-(fogFactor * fogFactor));
+			break;
+		}
+
+		MEDIUMP float fogFactor = clamp(fogFactor, 0.0, 1.0);
+		diffuseColor.rgb = mix(diffuseColor.rgb, _fogColor, fogFactor);
+	}
+	#endif
+
+	#if defined ENABLE_MRT_COLOR_DEPTH
+	{
+		IS_GLSL300_BEGIN
+		{
+			HIGHP float depth = (length(vPosition.xyz) - _cameraPerspectiveParam.z) / (_cameraPerspectiveParam.w - _cameraPerspectiveParam.z);
+			FRAG_COLOR0 = diffuseColor;
+			FRAG_COLOR1 = EncodeFloatRGBA(depth);
+		}
+		IS_GLSL300_ELSE
+		{
+			FRAG_COLOR0 = diffuseColor;
+		}
+		IS_GLSL300_END
+	}
+	#else
+	{
+		FRAG_COLOR0 = diffuseColor;
+	}
+	#endif
+}
+]]>
+</Source>
+</Shader>

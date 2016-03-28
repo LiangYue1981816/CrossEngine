@@ -1,0 +1,157 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(简体，中国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MAIN_PANEL DIALOGEX 0, 0, 216, 410
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Main Panel"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Coord System",IDC_STATIC,7,7,202,32
+    CONTROL         "D3D(LH)",IDC_RADIO_COORD_SYSTEM_D3D,"Button",BS_AUTORADIOBUTTON | WS_GROUP,17,20,43,10
+    CONTROL         "OpenGL(RH)",IDC_RADIO_COORD_SYSTEM_OGL,"Button",BS_AUTORADIOBUTTON,64,20,56,10
+    CONTROL         "Max(RH)",IDC_RADIO_COORD_SYSTEM_MAX,"Button",BS_AUTORADIOBUTTON,124,20,44,10
+    GROUPBOX        "Parameters",IDC_STATIC,7,41,202,305
+    CONTROL         "Key Frame",IDC_RADIO_KEY_FRAME,"Button",BS_AUTORADIOBUTTON | WS_GROUP,17,59,50,10
+    CONTROL         "All Frame",IDC_RADIO_ALL_FRAME,"Button",BS_AUTORADIOBUTTON,70,59,45,10
+    LTEXT           "RenderID:",IDC_STATIC,17,76,34,8
+    EDITTEXT        IDC_EDIT_RENDER_ID,52,75,40,12,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Sub Mesh",IDC_CHECK_SUB_MESH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,17,88,47,10
+    CONTROL         "Mesh In World Space",IDC_CHECK_WORLD_SPACE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,17,100,83,10
+    CONTROL         "Optimize Skeleton",IDC_CHECK_OPTIMIZE_SKELETON,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,17,112,73,10
+    CONTROL         "GPUSkinning",IDC_CHECK_GPU_SKINNING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,17,124,55,10
+    GROUPBOX        "Low",IDC_STATIC,16,140,185,35
+    LTEXT           "Lighting:",IDC_STATIC,21,150,28,8
+    CONTROL         "None",IDC_RADIO_LOW_NONE_LIGHTING,"Button",BS_AUTORADIOBUTTON | WS_GROUP,53,150,33,10
+    CONTROL         "Simple",IDC_RADIO_LOW_SIMPLE_LIGHTING,"Button",BS_AUTORADIOBUTTON,87,150,36,10
+    CONTROL         "Advanced",IDC_RADIO_LOW_ADVANCED_LIGHTING,"Button",BS_AUTORADIOBUTTON,124,150,48,10
+    LTEXT           "Map:",IDC_STATIC,32,161,17,8
+    CONTROL         "LightMap",IDC_CHECK_LOW_LIGHTMAP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,53,161,45,10
+    CONTROL         "EnvMap",IDC_CHECK_LOW_ENVMAP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,100,161,41,10
+    CONTROL         "ShadowMap",IDC_CHECK_LOW_SHADOWMAP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,143,161,55,10
+    GROUPBOX        "Medium",IDC_STATIC,16,176,185,35
+    LTEXT           "Lighting:",IDC_STATIC,21,186,28,8
+    CONTROL         "None",IDC_RADIO_MEDIUM_NONE_LIGHTING,"Button",BS_AUTORADIOBUTTON | WS_GROUP,53,186,33,10
+    CONTROL         "Simple",IDC_RADIO_MEDIUM_SIMPLE_LIGHTING,"Button",BS_AUTORADIOBUTTON,87,186,36,10
+    CONTROL         "Advanced",IDC_RADIO_MEDIUM_ADVANCED_LIGHTING,"Button",BS_AUTORADIOBUTTON,124,186,48,10
+    LTEXT           "Map:",IDC_STATIC,32,197,17,8
+    CONTROL         "LightMap",IDC_CHECK_MEDIUM_LIGHTMAP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,53,197,45,10
+    CONTROL         "EnvMap",IDC_CHECK_MEDIUM_ENVMAP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,100,197,41,10
+    CONTROL         "ShadowMap",IDC_CHECK_MEDIUM_SHADOWMAP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,143,197,55,10
+    GROUPBOX        "High",IDC_STATIC,16,212,185,35
+    LTEXT           "Lighting:",IDC_STATIC,21,221,28,8
+    CONTROL         "None",IDC_RADIO_HIGH_NONE_LIGHTING,"Button",BS_AUTORADIOBUTTON | WS_GROUP,53,221,33,10
+    CONTROL         "Simple",IDC_RADIO_HIGH_SIMPLE_LIGHTING,"Button",BS_AUTORADIOBUTTON,87,221,36,10
+    CONTROL         "Advanced",IDC_RADIO_HIGH_ADVANCED_LIGHTING,"Button",BS_AUTORADIOBUTTON,124,221,48,10
+    LTEXT           "Map:",IDC_STATIC,32,233,17,8
+    CONTROL         "LightMap",IDC_CHECK_HIGH_LIGHTMAP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,53,233,45,10
+    CONTROL         "EnvMap",IDC_CHECK_HIGH_ENVMAP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,100,233,41,10
+    CONTROL         "ShadowMap",IDC_CHECK_HIGH_SHADOWMAP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,143,233,55,10
+    GROUPBOX        "Ultra",IDC_STATIC,16,248,185,35
+    LTEXT           "Lighting:",IDC_STATIC,21,258,28,8
+    CONTROL         "None",IDC_RADIO_ULTRA_NONE_LIGHTING,"Button",BS_AUTORADIOBUTTON | WS_GROUP,53,258,33,10
+    CONTROL         "Simple",IDC_RADIO_ULTRA_SIMPLE_LIGHTING,"Button",BS_AUTORADIOBUTTON,87,258,36,10
+    CONTROL         "Advanced",IDC_RADIO_ULTRA_ADVANCED_LIGHTING,"Button",BS_AUTORADIOBUTTON,124,258,48,10
+    LTEXT           "Map:",IDC_STATIC,32,270,17,8
+    CONTROL         "LightMap",IDC_CHECK_ULTRA_LIGHTMAP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,53,270,45,10
+    CONTROL         "EnvMap",IDC_CHECK_ULTRA_ENVMAP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,100,270,41,10
+    CONTROL         "ShadowMap",IDC_CHECK_ULTRA_SHADOWMAP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,143,270,55,10
+    GROUPBOX        "Extreme",IDC_STATIC,16,284,185,35
+    LTEXT           "Lighting:",IDC_STATIC,21,293,28,8
+    CONTROL         "None",IDC_RADIO_EXTREME_NONE_LIGHTING,"Button",BS_AUTORADIOBUTTON | WS_GROUP,53,293,33,10
+    CONTROL         "Simple",IDC_RADIO_EXTREME_SIMPLE_LIGHTING,"Button",BS_AUTORADIOBUTTON,87,293,36,10
+    CONTROL         "Advanced",IDC_RADIO_EXTREME_ADVANCED_LIGHTING,"Button",BS_AUTORADIOBUTTON,124,293,48,10
+    LTEXT           "Map:",IDC_STATIC,32,306,17,8
+    CONTROL         "LightMap",IDC_CHECK_EXTREME_LIGHTMAP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,53,306,45,10
+    CONTROL         "EnvMap",IDC_CHECK_EXTREME_ENVMAP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,100,306,41,10
+    CONTROL         "ShadowMap",IDC_CHECK_EXTREME_SHADOWMAP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,143,306,55,10
+    LTEXT           "External Skeleton:",IDC_STATIC,17,330,60,8
+    EDITTEXT        IDC_EDIT_EXTERNAL_SKELETON,80,329,120,12,ES_AUTOHSCROLL
+    GROUPBOX        "External Command",IDC_STATIC,7,352,202,32
+    EDITTEXT        IDC_EDIT_COMMAND,18,366,180,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,105,389,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,159,389,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_MAIN_PANEL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 209
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 403
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // 中文(简体，中国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

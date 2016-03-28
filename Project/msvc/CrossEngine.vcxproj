@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{880C81C1-77BA-4F80-B209-C730FF50EFBE}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>CrossEngine</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\..\Bin\$(Configuration)$(Platform)\</OutDir>
+    <IntDir>CrossEngine.$(Configuration)$(Platform)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\..\Bin\$(Configuration)$(Platform)\</OutDir>
+    <IntDir>CrossEngine.$(Configuration)$(Platform)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\Bin\$(Configuration)$(Platform)\</OutDir>
+    <IntDir>CrossEngine.$(Configuration)$(Platform)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\Bin\$(Configuration)$(Platform)\</OutDir>
+    <IntDir>CrossEngine.$(Configuration)$(Platform)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_PLATFORM_WINDOWS_;_DEV_;_PROFILER_;WIN32;_DEBUG;_WINDOWS;_USRDLL;CROSSENGINE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../Dependencies;../../Dependencies/glew;../../Dependencies/lua;../../Dependencies/picoc;../../Dependencies/zlib;../../Dependencies/zzip;../../Dependencies/pthread-win32;../../FMod/include;../../PhysX-3.3/PhysXSDK/Include;../../PhysX-3.3/PhysXSDK/Source/foundation/include;../../CrossEngine/include;../../CrossEngine/include/PxToolkit;../../Crossengine/src</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4251;4273;4290;4996</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(OutDir);../../FMod/lib/win32;../../PhysX-3.3/PhysXSDK/Lib/vc12win32;../../Dependencies/pthread-win32/x86</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;pthreadVC2.lib;fmodex_vc.lib;LowLevelDEBUG.lib;LowLevelClothDEBUG.lib;PhysX3CharacterKinematicDEBUG_x86.lib;PhysX3DEBUG_x86.lib;PhysX3CommonDEBUG_x86.lib;PhysX3CookingDEBUG_x86.lib;PhysX3ExtensionsDEBUG.lib;PhysX3GpuDEBUG_x86.lib;PhysX3VehicleDEBUG.lib;PhysXProfileSDKDEBUG.lib;PhysXVisualDebuggerSDKDEBUG.lib;PvdRuntimeDEBUG.lib;PxTaskDEBUG.lib;SceneQueryDEBUG.lib;SimulationControllerDEBUG.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_PLATFORM_WINDOWS_;_DEV_;_PROFILER_;WIN32;__LP64__;_DEBUG;_WINDOWS;_USRDLL;CROSSENGINE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../Dependencies;../../Dependencies/glew;../../Dependencies/lua;../../Dependencies/picoc;../../Dependencies/zlib;../../Dependencies/zzip;../../Dependencies/pthread-win32;../../FMod/include;../../PhysX-3.3/PhysXSDK/Include;../../PhysX-3.3/PhysXSDK/Source/foundation/include;../../CrossEngine/include;../../CrossEngine/include/PxToolkit;../../Crossengine/src</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4251;4273;4290;4996</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(OutDir);../../FMod/lib/win32;../../PhysX-3.3/PhysXSDK/Lib/vc12win64;../../Dependencies/pthread-win32/x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;pthreadVC2.lib;fmodex64_vc.lib;LowLevelDEBUG.lib;LowLevelClothDEBUG.lib;PhysX3CharacterKinematicDEBUG_x64.lib;PhysX3DEBUG_x64.lib;PhysX3CommonDEBUG_x64.lib;PhysX3CookingDEBUG_x64.lib;PhysX3ExtensionsDEBUG.lib;PhysX3GpuDEBUG_x64.lib;PhysX3VehicleDEBUG.lib;PhysXProfileSDKDEBUG.lib;PhysXVisualDebuggerSDKDEBUG.lib;PvdRuntimeDEBUG.lib;PxTaskDEBUG.lib;SceneQueryDEBUG.lib;SimulationControllerDEBUG.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_PLATFORM_WINDOWS_;_DEV_;_PROFILER_;WIN32;NDEBUG;_WINDOWS;_USRDLL;CROSSENGINE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../Dependencies;../../Dependencies/glew;../../Dependencies/lua;../../Dependencies/picoc;../../Dependencies/zlib;../../Dependencies/zzip;../../Dependencies/pthread-win32;../../FMod/include;../../PhysX-3.3/PhysXSDK/Include;../../PhysX-3.3/PhysXSDK/Source/foundation/include;../../CrossEngine/include;../../CrossEngine/include/PxToolkit;../../Crossengine/src</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4251;4273;4290;4996</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(OutDir);../../FMod/lib/win32;../../PhysX-3.3/PhysXSDK/Lib/vc12win32;../../Dependencies/pthread-win32/x86</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;pthreadVC2.lib;fmodex_vc.lib;LowLevelCHECKED.lib;LowLevelClothCHECKED.lib;PhysX3CharacterKinematicCHECKED_x86.lib;PhysX3CHECKED_x86.lib;PhysX3CommonCHECKED_x86.lib;PhysX3CookingCHECKED_x86.lib;PhysX3ExtensionsCHECKED.lib;PhysX3GpuCHECKED_x86.lib;PhysX3VehicleCHECKED.lib;PhysXProfileSDKCHECKED.lib;PhysXVisualDebuggerSDKCHECKED.lib;PvdRuntimeCHECKED.lib;PxTaskCHECKED.lib;SceneQueryCHECKED.lib;SimulationControllerCHECKED.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_PLATFORM_WINDOWS_;_DEV_;_PROFILER_;WIN32;__LP64__;NDEBUG;_WINDOWS;_USRDLL;CROSSENGINE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../Dependencies;../../Dependencies/glew;../../Dependencies/lua;../../Dependencies/picoc;../../Dependencies/zlib;../../Dependencies/zzip;../../Dependencies/pthread-win32;../../FMod/include;../../PhysX-3.3/PhysXSDK/Include;../../PhysX-3.3/PhysXSDK/Source/foundation/include;../../CrossEngine/include;../../CrossEngine/include/PxToolkit;../../Crossengine/src</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4251;4273;4290;4996</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(OutDir);../../FMod/lib/win32;../../PhysX-3.3/PhysXSDK/Lib/vc12win64;../../Dependencies/pthread-win32/x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;pthreadVC2.lib;fmodex64_vc.lib;LowLevelCHECKED.lib;LowLevelClothCHECKED.lib;PhysX3CharacterKinematicCHECKED_x64.lib;PhysX3CHECKED_x64.lib;PhysX3CommonCHECKED_x64.lib;PhysX3CookingCHECKED_x64.lib;PhysX3ExtensionsCHECKED.lib;PhysX3GpuCHECKED_x64.lib;PhysX3VehicleCHECKED.lib;PhysXProfileSDKCHECKED.lib;PhysXVisualDebuggerSDKCHECKED.lib;PvdRuntimeCHECKED.lib;PxTaskCHECKED.lib;SceneQueryCHECKED.lib;SimulationControllerCHECKED.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\CrossEngine\include\CrossC.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossEffect.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossEffectManager.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossEngine.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossEntity.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossEntityCamera.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossEntityEffect.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossEntityHalo.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossEntityLight.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossEntityMesh.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossEntityRenderable.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossEntityShadow.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossEntitySkin.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossLightGrid.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossList.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossLog.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossMaterial.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossMaterialManager.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossMath.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossMemory.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossMesh.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossMeshManager.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossOcclusionCulling.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossOctreeCulling.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossOpenGL.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticle.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleAffector.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleAffectorColor.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleAffectorForce.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleAffectorKeepLocal.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleAffectorRandom.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleAffectorRotate.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleAffectorScale.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleAffectorTexture.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleAffectorVelocity.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleEmitter.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleEmitterBox.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleEmitterPoint.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleEmitterSphere.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleGfx.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleGfxBillboard.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleGfxDebug.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossParticleSystem.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossPhysics.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossPhysicsManager.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossProfiler.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossRenderer.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossRenderFlow.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossRenderQuene.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossRenderSystem.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossResource.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossResourceManager.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossResourceSystem.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossSceneManager.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossSceneNode.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossSceneSystem.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossShader.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossShaderManager.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossSharedPtr.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossSkeleton.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossSkeletonManager.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossSound.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossSoundManager.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossSoundSystem.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossStream.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossTexture.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossTextureManager.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossType.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossUtility.h" />
+    <ClInclude Include="..\..\CrossEngine\include\PxToolkit\PxTkBmpLoader.h" />
+    <ClInclude Include="..\..\CrossEngine\include\PxToolkit\PxTkFPS.h" />
+    <ClInclude Include="..\..\CrossEngine\include\PxToolkit\PxTkMatrixUtils.h" />
+    <ClInclude Include="..\..\CrossEngine\include\PxToolkit\PxTkNamespaceMangle.h" />
+    <ClInclude Include="..\..\CrossEngine\include\PxToolkit\PxTkRandom.h" />
+    <ClInclude Include="..\..\CrossEngine\include\PxToolkit\PxTkStream.h" />
+    <ClInclude Include="..\..\CrossEngine\include\PxToolkit\PxToolkit.h" />
+    <ClInclude Include="..\..\CrossEngine\include\tinystr.h" />
+    <ClInclude Include="..\..\CrossEngine\include\tinyxml.h" />
+    <ClInclude Include="..\..\CrossEngine\src\_CrossEngine.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\CrossEngine\src\CrossC.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossEffect.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossEffectManager.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossEngine.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossEntity.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossEntityCamera.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossEntityEffect.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossEntityHalo.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossEntityLight.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossEntityMesh.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossEntityRenderable.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossEntityShadow.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossEntitySkin.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossLightGrid.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossLog.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossMaterial.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossMaterialManager.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossMaterialPass.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossMaterialPassGroup.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossMaterialPhysics.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossMaterialSolution.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossMath.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossMemory.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossMesh.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossMeshManager.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossOcclusionCulling.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossOctreeCulling.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossOpenGL.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticle.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleAffector.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleAffectorColor.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleAffectorForce.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleAffectorKeepLocal.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleAffectorRandom.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleAffectorRotate.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleAffectorScale.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleAffectorTexture.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleAffectorVelocity.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleEmitter.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleEmitterBox.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleEmitterPoint.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleEmitterSphere.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleGfx.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleGfxBillboard.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleGfxDebug.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossParticleSystem.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossPhysics.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossPhysicsManager.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossProfiler.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossRenderer.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossRenderFlow.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossRenderQuene.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossRenderSolution.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossRenderStage.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossRenderSystem.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossRenderTarget.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossResource.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossResourceManager.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossResourceSystem.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossSceneManager.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossSceneNode.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossSceneSystem.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossShader.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossShaderManager.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossSkeleton.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossSkeletonManager.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossSound.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossSoundManager.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossSoundSystem.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossStream.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossTexture.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossTextureManager.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossUtility.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\PxToolkit\PxTkBmpLoader.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\PxToolkit\PxTkFPS.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\PxToolkit\PxTkMatrixUtils.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\PxToolkit\PxTkRandom.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\PxToolkit\PxTkStream.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\tinystr.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\tinyxml.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\tinyxmlerror.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\tinyxmlparser.cpp" />
+    <ClCompile Include="..\..\Dependencies\glew\glew.c" />
+    <ClCompile Include="..\..\Dependencies\lua\lapi.c" />
+    <ClCompile Include="..\..\Dependencies\lua\lauxlib.c" />
+    <ClCompile Include="..\..\Dependencies\lua\lbaselib.c" />
+    <ClCompile Include="..\..\Dependencies\lua\lbitlib.c" />
+    <ClCompile Include="..\..\Dependencies\lua\lcode.c" />
+    <ClCompile Include="..\..\Dependencies\lua\lcorolib.c" />
+    <ClCompile Include="..\..\Dependencies\lua\lctype.c" />
+    <ClCompile Include="..\..\Dependencies\lua\ldblib.c" />
+    <ClCompile Include="..\..\Dependencies\lua\ldebug.c" />
+    <ClCompile Include="..\..\Dependencies\lua\ldo.c" />
+    <ClCompile Include="..\..\Dependencies\lua\ldump.c" />
+    <ClCompile Include="..\..\Dependencies\lua\lfunc.c" />
+    <ClCompile Include="..\..\Dependencies\lua\lgc.c" />
+    <ClCompile Include="..\..\Dependencies\lua\linit.c" />
+    <ClCompile Include="..\..\Dependencies\lua\liolib.c" />
+    <ClCompile Include="..\..\Dependencies\lua\llex.c" />
+    <ClCompile Include="..\..\Dependencies\lua\lmathlib.c" />
+    <ClCompile Include="..\..\Dependencies\lua\lmem.c" />
+    <ClCompile Include="..\..\Dependencies\lua\loadlib.c" />
+    <ClCompile Include="..\..\Dependencies\lua\lobject.c" />
+    <ClCompile Include="..\..\Dependencies\lua\lopcodes.c" />
+    <ClCompile Include="..\..\Dependencies\lua\loslib.c" />
+    <ClCompile Include="..\..\Dependencies\lua\lparser.c" />
+    <ClCompile Include="..\..\Dependencies\lua\lstate.c" />
+    <ClCompile Include="..\..\Dependencies\lua\lstring.c" />
+    <ClCompile Include="..\..\Dependencies\lua\lstrlib.c" />
+    <ClCompile Include="..\..\Dependencies\lua\ltable.c" />
+    <ClCompile Include="..\..\Dependencies\lua\ltablib.c" />
+    <ClCompile Include="..\..\Dependencies\lua\ltm.c" />
+    <ClCompile Include="..\..\Dependencies\lua\luac.c" />
+    <ClCompile Include="..\..\Dependencies\lua\lundump.c" />
+    <ClCompile Include="..\..\Dependencies\lua\lutf8lib.c" />
+    <ClCompile Include="..\..\Dependencies\lua\lvm.c" />
+    <ClCompile Include="..\..\Dependencies\lua\lzio.c" />
+    <ClCompile Include="..\..\Dependencies\picoc\clibrary.c" />
+    <ClCompile Include="..\..\Dependencies\picoc\cstdlib\ctype.c" />
+    <ClCompile Include="..\..\Dependencies\picoc\cstdlib\errno.c" />
+    <ClCompile Include="..\..\Dependencies\picoc\cstdlib\math.c" />
+    <ClCompile Include="..\..\Dependencies\picoc\cstdlib\stdbool.c" />
+    <ClCompile Include="..\..\Dependencies\picoc\cstdlib\stdio.c" />
+    <ClCompile Include="..\..\Dependencies\picoc\cstdlib\stdlib.c" />
+    <ClCompile Include="..\..\Dependencies\picoc\cstdlib\string.c" />
+    <ClCompile Include="..\..\Dependencies\picoc\cstdlib\time.c" />
+    <ClCompile Include="..\..\Dependencies\picoc\debug.c" />
+    <ClCompile Include="..\..\Dependencies\picoc\expression.c" />
+    <ClCompile Include="..\..\Dependencies\picoc\heap.c" />
+    <ClCompile Include="..\..\Dependencies\picoc\include.c" />
+    <ClCompile Include="..\..\Dependencies\picoc\lex.c" />
+    <ClCompile Include="..\..\Dependencies\picoc\parse.c" />
+    <ClCompile Include="..\..\Dependencies\picoc\platform.c" />
+    <ClCompile Include="..\..\Dependencies\picoc\table.c" />
+    <ClCompile Include="..\..\Dependencies\picoc\type.c" />
+    <ClCompile Include="..\..\Dependencies\picoc\variable.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\adler32.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\compress.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\crc32.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\deflate.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\gzclose.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\gzlib.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\gzread.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\gzwrite.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\infback.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\inffast.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\inflate.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\inftrees.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\trees.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\uncompr.c" />
+    <ClCompile Include="..\..\Dependencies\zlib\zutil.c" />
+    <ClCompile Include="..\..\Dependencies\zzip\dir.c" />
+    <ClCompile Include="..\..\Dependencies\zzip\err.c" />
+    <ClCompile Include="..\..\Dependencies\zzip\fetch.c" />
+    <ClCompile Include="..\..\Dependencies\zzip\file.c" />
+    <ClCompile Include="..\..\Dependencies\zzip\info.c" />
+    <ClCompile Include="..\..\Dependencies\zzip\plugin.c" />
+    <ClCompile Include="..\..\Dependencies\zzip\stat.c" />
+    <ClCompile Include="..\..\Dependencies\zzip\zip.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\CrossEngine\media\Engine\RenderFlow_ES.xml" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
