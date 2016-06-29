@@ -223,6 +223,7 @@
     <ClInclude Include="..\..\CrossEngine\include\CrossPhysics.h" />
     <ClInclude Include="..\..\CrossEngine\include\CrossPhysicsManager.h" />
     <ClInclude Include="..\..\CrossEngine\include\CrossProfiler.h" />
+    <ClInclude Include="..\..\CrossEngine\include\CrossRelfection.h" />
     <ClInclude Include="..\..\CrossEngine\include\CrossRenderer.h" />
     <ClInclude Include="..\..\CrossEngine\include\CrossRenderFlow.h" />
     <ClInclude Include="..\..\CrossEngine\include\CrossRenderQuene.h" />
@@ -307,6 +308,7 @@
     <ClCompile Include="..\..\CrossEngine\src\CrossPhysics.cpp" />
     <ClCompile Include="..\..\CrossEngine\src\CrossPhysicsManager.cpp" />
     <ClCompile Include="..\..\CrossEngine\src\CrossProfiler.cpp" />
+    <ClCompile Include="..\..\CrossEngine\src\CrossRelfection.cpp" />
     <ClCompile Include="..\..\CrossEngine\src\CrossRenderer.cpp" />
     <ClCompile Include="..\..\CrossEngine\src\CrossRenderFlow.cpp" />
     <ClCompile Include="..\..\CrossEngine\src\CrossRenderQuene.cpp" />

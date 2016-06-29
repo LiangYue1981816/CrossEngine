@@ -100,6 +100,7 @@ THE SOFTWARE.
 #endif
 
 
+#include "CrossRelfection.h"
 #include "CrossType.h"
 #include "CrossC.h"
 #include "CrossLog.h"

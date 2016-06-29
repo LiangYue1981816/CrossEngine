@@ -329,6 +329,9 @@
     <ClInclude Include="..\..\CrossEngine\include\CrossProfiler.h">
       <Filter>Engine\Header Files\Base</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\CrossEngine\include\CrossRelfection.h">
+      <Filter>Engine\Header Files\Base</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Dependencies\glew\glew.c">
@@ -807,6 +810,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Dependencies\picoc\cstdlib\time.c">
       <Filter>Dependencies\picoc\stdlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CrossEngine\src\CrossRelfection.cpp">
+      <Filter>Engine\Source Files\Base</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
