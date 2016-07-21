@@ -7,8 +7,6 @@
 #include <string.h>
 #include <memory.h>
 #include <assert.h>
-#include "pthread.h"
-#include "semaphore.h"
 #include "../include/IMAGE.H"
 
 
