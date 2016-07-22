@@ -59,4 +59,7 @@ FARPROC WINAPI delayHook(unsigned dliNotify, PDelayLoadInfo pdli)
 	return NULL;
 }
 
+#ifndef DELAYIMP_INSECURE_WRITABLE_HOOKS
+const
+#endif
 PfnDliHook __pfnDliNotifyHook2 = delayHook;
