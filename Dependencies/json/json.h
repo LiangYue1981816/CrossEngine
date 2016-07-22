@@ -24,10 +24,6 @@ extern "C" {
 #include "json_object.h"
 #include "json_tokener.h"
 
-#if defined(WIN32)
-#define snprintf _snprintf
-#endif
-
 #ifdef __cplusplus
 }
 #endif

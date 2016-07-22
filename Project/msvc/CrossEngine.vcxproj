@@ -103,8 +103,8 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(OutDir);../../FMod/lib/win32;../../PhysX-3.3/PhysXSDK/Lib/vc12win32;../../Dependencies/pthread-win32/x86</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;pthreadVC2.lib;fmodex_vc.lib;LowLevelDEBUG.lib;LowLevelClothDEBUG.lib;PhysX3CharacterKinematicDEBUG_x86.lib;PhysX3DEBUG_x86.lib;PhysX3CommonDEBUG_x86.lib;PhysX3CookingDEBUG_x86.lib;PhysX3ExtensionsDEBUG.lib;PhysX3GpuDEBUG_x86.lib;PhysX3VehicleDEBUG.lib;PhysXProfileSDKDEBUG.lib;PhysXVisualDebuggerSDKDEBUG.lib;PvdRuntimeDEBUG.lib;PxTaskDEBUG.lib;SceneQueryDEBUG.lib;SimulationControllerDEBUG.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);../../FMod/lib/win32;../../PhysX-3.3/PhysXSDK/Lib/vc14win32;../../Dependencies/pthread-win32/x86</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;pthreadVC2.lib;fmodex_vc.lib;LowLevelDEBUG.lib;LowLevelClothDEBUG.lib;PhysX3CharacterKinematicDEBUG_x86.lib;PhysX3DEBUG_x86.lib;PhysX3CommonDEBUG_x86.lib;PhysX3CookingDEBUG_x86.lib;PhysX3ExtensionsDEBUG.lib;PhysX3VehicleDEBUG.lib;PhysXProfileSDKDEBUG.lib;PhysXVisualDebuggerSDKDEBUG.lib;PvdRuntimeDEBUG.lib;PxTaskDEBUG.lib;SceneQueryDEBUG.lib;SimulationControllerDEBUG.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -124,8 +124,8 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(OutDir);../../FMod/lib/win32;../../PhysX-3.3/PhysXSDK/Lib/vc12win64;../../Dependencies/pthread-win32/x64</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;pthreadVC2.lib;fmodex64_vc.lib;LowLevelDEBUG.lib;LowLevelClothDEBUG.lib;PhysX3CharacterKinematicDEBUG_x64.lib;PhysX3DEBUG_x64.lib;PhysX3CommonDEBUG_x64.lib;PhysX3CookingDEBUG_x64.lib;PhysX3ExtensionsDEBUG.lib;PhysX3GpuDEBUG_x64.lib;PhysX3VehicleDEBUG.lib;PhysXProfileSDKDEBUG.lib;PhysXVisualDebuggerSDKDEBUG.lib;PvdRuntimeDEBUG.lib;PxTaskDEBUG.lib;SceneQueryDEBUG.lib;SimulationControllerDEBUG.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);../../FMod/lib/win32;../../PhysX-3.3/PhysXSDK/Lib/vc14win64;../../Dependencies/pthread-win32/x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;pthreadVC2.lib;fmodex64_vc.lib;LowLevelDEBUG.lib;LowLevelClothDEBUG.lib;PhysX3CharacterKinematicDEBUG_x64.lib;PhysX3DEBUG_x64.lib;PhysX3CommonDEBUG_x64.lib;PhysX3CookingDEBUG_x64.lib;PhysX3ExtensionsDEBUG.lib;PhysX3VehicleDEBUG.lib;PhysXProfileSDKDEBUG.lib;PhysXVisualDebuggerSDKDEBUG.lib;PvdRuntimeDEBUG.lib;PxTaskDEBUG.lib;SceneQueryDEBUG.lib;SimulationControllerDEBUG.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -148,8 +148,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(OutDir);../../FMod/lib/win32;../../PhysX-3.3/PhysXSDK/Lib/vc12win32;../../Dependencies/pthread-win32/x86</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;pthreadVC2.lib;fmodex_vc.lib;LowLevelCHECKED.lib;LowLevelClothCHECKED.lib;PhysX3CharacterKinematicCHECKED_x86.lib;PhysX3CHECKED_x86.lib;PhysX3CommonCHECKED_x86.lib;PhysX3CookingCHECKED_x86.lib;PhysX3ExtensionsCHECKED.lib;PhysX3GpuCHECKED_x86.lib;PhysX3VehicleCHECKED.lib;PhysXProfileSDKCHECKED.lib;PhysXVisualDebuggerSDKCHECKED.lib;PvdRuntimeCHECKED.lib;PxTaskCHECKED.lib;SceneQueryCHECKED.lib;SimulationControllerCHECKED.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);../../FMod/lib/win32;../../PhysX-3.3/PhysXSDK/Lib/vc14win32;../../Dependencies/pthread-win32/x86</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;pthreadVC2.lib;fmodex_vc.lib;LowLevelCHECKED.lib;LowLevelClothCHECKED.lib;PhysX3CharacterKinematicCHECKED_x86.lib;PhysX3CHECKED_x86.lib;PhysX3CommonCHECKED_x86.lib;PhysX3CookingCHECKED_x86.lib;PhysX3ExtensionsCHECKED.lib;PhysX3VehicleCHECKED.lib;PhysXProfileSDKCHECKED.lib;PhysXVisualDebuggerSDKCHECKED.lib;PvdRuntimeCHECKED.lib;PxTaskCHECKED.lib;SceneQueryCHECKED.lib;SimulationControllerCHECKED.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -172,8 +172,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(OutDir);../../FMod/lib/win32;../../PhysX-3.3/PhysXSDK/Lib/vc12win64;../../Dependencies/pthread-win32/x64</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;pthreadVC2.lib;fmodex64_vc.lib;LowLevelCHECKED.lib;LowLevelClothCHECKED.lib;PhysX3CharacterKinematicCHECKED_x64.lib;PhysX3CHECKED_x64.lib;PhysX3CommonCHECKED_x64.lib;PhysX3CookingCHECKED_x64.lib;PhysX3ExtensionsCHECKED.lib;PhysX3GpuCHECKED_x64.lib;PhysX3VehicleCHECKED.lib;PhysXProfileSDKCHECKED.lib;PhysXVisualDebuggerSDKCHECKED.lib;PvdRuntimeCHECKED.lib;PxTaskCHECKED.lib;SceneQueryCHECKED.lib;SimulationControllerCHECKED.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);../../FMod/lib/win32;../../PhysX-3.3/PhysXSDK/Lib/vc14win64;../../Dependencies/pthread-win32/x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;pthreadVC2.lib;fmodex64_vc.lib;LowLevelCHECKED.lib;LowLevelClothCHECKED.lib;PhysX3CharacterKinematicCHECKED_x64.lib;PhysX3CHECKED_x64.lib;PhysX3CommonCHECKED_x64.lib;PhysX3CookingCHECKED_x64.lib;PhysX3ExtensionsCHECKED.lib;PhysX3VehicleCHECKED.lib;PhysXProfileSDKCHECKED.lib;PhysXVisualDebuggerSDKCHECKED.lib;PvdRuntimeCHECKED.lib;PxTaskCHECKED.lib;SceneQueryCHECKED.lib;SimulationControllerCHECKED.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
