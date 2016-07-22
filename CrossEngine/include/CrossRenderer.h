@@ -64,7 +64,7 @@ namespace CrossEngine {
 
 		// 着色器数据结构
 	public:
-		typedef enum {
+		enum {
 			ATTRIB_LOCATION_POSITION = 0,                                                          // 位置属性
 			ATTRIB_LOCATION_NORMAL,                                                                // 法线属性
 			ATTRIB_LOCATION_BINORMAL,                                                              // 副法线属性
@@ -76,7 +76,7 @@ namespace CrossEngine {
 			ATTRIB_LOCATION_COUNT
 		};
 
-		typedef enum {
+		enum {
 			UNIFORM_TYPE_UNKNOW = 0,                                                               // 未知
 			UNIFORM_TYPE_INT,                                                                      // 整形
 			UNIFORM_TYPE_INT2,                                                                     // 整形2
@@ -91,7 +91,7 @@ namespace CrossEngine {
 			UNIFORM_TYPE_MATRIX4                                                                   // 矩阵4
 		};
 
-		typedef enum {
+		enum {
 			UNIFORM_LOCATION_VIEWPORT = 0,                                                         // 视口
 			UNIFORM_LOCATION_CAMERAPERSPECTIVE,                                                    // 相机视锥
 			UNIFORM_LOCATION_CAMERAPOSITION,                                                       // 相机位置

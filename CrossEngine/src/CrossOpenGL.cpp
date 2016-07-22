@@ -274,7 +274,7 @@ namespace CrossEngine {
 	} PIPLINE_STATE;
 
 	typedef struct {
-		GLint attrib;
+		GLuint attrib;
 		GLchar szString[64];
 	} ATTRIB_STRING;
 

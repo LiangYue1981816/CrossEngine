@@ -111,11 +111,6 @@ typedef LONG                           HRESULT;
 #define ASSERT                         assert
 #endif
 
-#ifndef _NLSCMP_DEFINED
-#define _NLSCMPERROR                   2147483647  /* currently == INT_MAX */
-#define _NLSCMP_DEFINED
-#endif
-
 #ifndef max
 #define max(a,b)                       (((a) > (b)) ? (a) : (b))
 #endif

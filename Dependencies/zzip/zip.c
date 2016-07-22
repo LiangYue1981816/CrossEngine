@@ -411,7 +411,7 @@ __zzip_parse_root_directory(int fd,
     zzip_off64_t zz_rootseek = _disk_trailer_rootseek(trailer);
     __correct_rootseek(zz_rootseek, zz_rootsize, trailer);
 
-    hdr0 = (struct zzip_dir_hdr *) malloc(zz_rootsize);
+    hdr0 = (struct zzip_dir_hdr *) malloc((size_t)zz_rootsize);
     if (! hdr0)
         return ZZIP_DIRSIZE;
     hdr = hdr0;
@@ -457,7 +457,7 @@ __zzip_parse_root_directory(int fd,
             { d = (void*)(fd_map+zz_fd_gap+zz_offset); } /* fd_map+fd_gap==u_rootseek */
         else
         {
-            if (io->fd.seeks(fd, zz_rootseek + zz_offset, SEEK_SET) < 0)
+            if (io->fd.seeks(fd, (zzip_off_t)(zz_rootseek + zz_offset), SEEK_SET) < 0)
                 return ZZIP_DIR_SEEK;
             if (io->fd.read(fd, &dirent, sizeof(dirent)) < __sizeof(dirent))
                 return ZZIP_DIR_READ;
@@ -497,11 +497,11 @@ __zzip_parse_root_directory(int fd,
            first structure read.
            at the end the whole copied list of structures  is copied into
            newly allocated buffer */
-        hdr->d_crc32 = zzip_disk_entry_get_crc32(d);
-        hdr->d_csize = zzip_disk_entry_get_csize(d);
-        hdr->d_usize = zzip_disk_entry_get_usize(d);
-        hdr->d_off = zzip_disk_entry_get_offset(d);
-        hdr->d_compr = zzip_disk_entry_get_compr(d);
+        hdr->d_crc32 = (uint32_t)zzip_disk_entry_get_crc32(d);
+        hdr->d_csize = (uint32_t)zzip_disk_entry_get_csize(d);
+        hdr->d_usize = (uint32_t)zzip_disk_entry_get_usize(d);
+        hdr->d_off = (uint32_t)zzip_disk_entry_get_offset(d);
+        hdr->d_compr = (uint8_t)zzip_disk_entry_get_compr(d);
         if (hdr->d_compr > _255)
             hdr->d_compr = 255;
 
